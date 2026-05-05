@@ -7,31 +7,18 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #0f1923;
-    --ink-soft: #3d4f5c;
-    --ink-muted: #7a8f9e;
-    --surface: #f7f4ef;
-    --white: #ffffff;
-    --teal: #0d7377;
-    --teal-light: #14a085;
-    --teal-pale: #e8f5f4;
-    --red: #c0392b;
-    --red-pale: #fdf0ee;
-    --amber: #e67e22;
-    --amber-pale: #fef5ec;
-    --gold: #d4a843;
-    --border: #ddd8d0;
-    --border-focus: #0d7377;
+    --ink: #0f1923; --ink-soft: #3d4f5c; --ink-muted: #7a8f9e;
+    --surface: #f7f4ef; --white: #ffffff;
+    --teal: #0d7377; --teal-light: #14a085; --teal-pale: #e8f5f4;
+    --red: #c0392b; --red-pale: #fdf0ee;
+    --amber: #e67e22; --amber-pale: #fef5ec;
+    --gold: #d4a843; --border: #ddd8d0; --border-focus: #0d7377;
     --shadow: 0 2px 20px rgba(15,25,35,0.08);
-    --radius: 12px;
-    --radius-sm: 8px;
+    --radius: 12px; --radius-sm: 8px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
-
-  /* HEADER */
   .site-header { position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.25); }
-  /* Brand strip — two-panel split matching ANUBHAV brand */
   .header-brand { display: flex; min-height: 68px; }
   .header-left { background: #1a2a4a; flex: 0 0 65%; display: flex; align-items: center; padding: 14px 28px; gap: 16px; clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%); }
   .header-right { background: #1565c0; flex: 1; display: flex; align-items: center; justify-content: center; padding: 14px 20px 14px 28px; }
@@ -41,7 +28,6 @@
   .header-title .deva { font-weight: 400; font-size: 17px; color: rgba(255,255,255,0.65); }
   .header-sub { font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 3px; }
   .header-tagline { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 13px; color: rgba(255,255,255,0.9); line-height: 1.65; text-align: center; }
-  /* Progress strip */
   .header-progress { background: #0e1d32; border-top: 1px solid rgba(255,255,255,0.06); padding: 0 28px; }
   .header-progress-inner { max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 38px; gap: 16px; }
   .progress-steps { display: flex; gap: 5px; align-items: center; }
@@ -54,11 +40,7 @@
   .progress-wrap { display: flex; align-items: center; gap: 10px; flex: 1; }
   .voice-ctrl { display: flex; align-items: center; gap: 6px; }
   .voice-ctrl-label { font-size: 10px; color: rgba(255,255,255,0.3); }
-
-  /* LAYOUT */
   .app-wrap { max-width: 720px; margin: 0 auto; padding: 36px 20px 80px; }
-
-  /* HERO */
   .hero { text-align: center; padding: 44px 32px 36px; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 28px; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--teal), var(--gold)); }
   .hero-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
@@ -67,8 +49,6 @@
   .hero-tagline { font-size: 13px; color: var(--ink-muted); font-style: italic; margin-bottom: 16px; }
   .hero-desc { font-size: 14px; color: var(--ink-soft); max-width: 460px; margin: 0 auto; line-height: 1.7; }
   .confidential-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--teal-pale); color: var(--teal); font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; margin-top: 18px; }
-
-  /* SECTION CARD */
   .section-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 24px; overflow: hidden; display: none; animation: slideIn 0.35s ease forwards; }
   .section-card.active { display: block; }
   @keyframes slideIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
@@ -78,43 +58,26 @@
   .section-header h2 { font-family: 'DM Serif Display', serif; font-size: 21px; color: var(--ink); line-height: 1.2; }
   .section-header p { font-size: 13px; color: var(--ink-muted); margin-top: 3px; }
   .section-body { padding: 26px 28px; }
-
-  /* SUBSECTION */
   .subsection { margin-bottom: 30px; }
   .subsection:last-child { margin-bottom: 0; }
   .subsection-title { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); padding-bottom: 10px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
-
-  /* FIELD */
   .field { margin-bottom: 20px; }
   .field:last-child { margin-bottom: 0; }
   .field-label { display: block; font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 7px; line-height: 1.4; }
-  .field-label .req { color: var(--red); margin-left: 3px; }
   .field-hint { font-size: 12px; color: var(--ink-muted); margin-bottom: 8px; font-style: italic; }
-
-  /* INPUTS */
-  input[type="text"], input[type="date"], select, textarea {
-    width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm);
-    font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink); background: var(--white);
-    transition: border-color 0.2s, box-shadow 0.2s; outline: none; -webkit-appearance: none;
-  }
+  input[type="text"], input[type="date"], select, textarea { width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; outline: none; -webkit-appearance: none; }
   input:focus, select:focus, textarea:focus { border-color: var(--border-focus); box-shadow: 0 0 0 3px rgba(13,115,119,0.1); }
   textarea { resize: vertical; min-height: 88px; line-height: 1.6; }
   select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a8f9e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
-
-  /* SCALE */
   .scale-wrap { display: flex; gap: 6px; flex-wrap: wrap; }
   .scale-btn { width: 44px; height: 44px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--white); font-size: 14px; font-weight: 600; color: var(--ink-soft); cursor: pointer; transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
   .scale-btn:hover { border-color: var(--teal); color: var(--teal); }
   .scale-btn.selected { background: var(--teal); border-color: var(--teal); color: white; }
   .scale-labels { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; color: var(--ink-muted); }
-
-  /* NPS */
   .nps-wrap { display: flex; gap: 4px; flex-wrap: wrap; }
   .nps-btn { width: 50px; height: 44px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--white); font-size: 13px; font-weight: 600; color: var(--ink-soft); cursor: pointer; transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
   .nps-btn:hover { border-color: var(--teal); color: var(--teal); }
   .nps-btn.selected { background: var(--teal); border-color: var(--teal); color: white; }
-
-  /* OPTIONS */
   .options-list { display: flex; flex-direction: column; gap: 7px; }
   .options-row { display: flex; flex-wrap: wrap; gap: 7px; }
   .option-btn { display: flex; align-items: center; gap: 10px; padding: 9px 15px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; transition: all 0.15s; background: var(--white); font-size: 14px; color: var(--ink-soft); user-select: none; }
@@ -124,9 +87,7 @@
   .option-btn.selected .check { background: var(--teal); border-color: var(--teal); }
   .option-btn.selected .check::after { content: ''; width: 5px; height: 5px; background: white; border-radius: 50%; }
   .option-btn.checkbox .check { border-radius: 4px; }
-  .option-btn.checkbox.selected .check::after { content: '✓'; font-size: 10px; font-weight: 700; border-radius: 0; width: auto; height: auto; }
-
-  /* VOICE */
+  .option-btn.checkbox.selected .check::after { content: '\2713'; font-size: 10px; font-weight: 700; border-radius: 0; width: auto; height: auto; }
   .voice-field { position: relative; }
   .voice-field textarea { padding-right: 50px; }
   .voice-btn { position: absolute; right: 9px; bottom: 9px; width: 32px; height: 32px; border: none; border-radius: 50%; background: var(--teal-pale); color: var(--teal); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-size: 15px; }
@@ -135,20 +96,11 @@
   @keyframes pulse { 0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192,57,43,0.4); } 50% { transform: scale(1.08); box-shadow: 0 0 0 8px rgba(192,57,43,0); } }
   .voice-status { font-size: 11px; color: var(--red); margin-top: 4px; font-weight: 500; min-height: 16px; display: none; }
   .voice-status.show { display: block; }
-  .voice-lang-row { display: flex; gap: 6px; margin-bottom: 6px; }
   .lang-btn { padding: 4px 10px; border: 1.5px solid var(--border); border-radius: 20px; font-size: 11px; font-weight: 600; cursor: pointer; background: var(--white); color: var(--ink-muted); transition: all 0.15s; font-family: 'DM Sans', sans-serif; }
   .lang-btn.active { background: var(--teal); border-color: var(--teal); color: white; }
-
-  /* WHISPER BANNER */
-  .whisper-banner { display: flex; align-items: flex-start; gap: 12px; background: linear-gradient(135deg, #e8f5f4, #f0faf9); border: 1px solid rgba(13,115,119,0.2); border-radius: var(--radius-sm); padding: 12px 15px; margin-bottom: 22px; font-size: 13px; color: var(--ink-soft); }
-  .whisper-banner .icon { font-size: 18px; flex-shrink: 0; }
-
-  /* NOTICE */
   .notice { display: flex; align-items: flex-start; gap: 10px; padding: 12px 15px; border-radius: var(--radius-sm); font-size: 13px; margin-bottom: 18px; }
   .notice.info { background: var(--teal-pale); color: var(--teal); border: 1px solid rgba(13,115,119,0.2); }
   .notice.warn { background: var(--amber-pale); color: var(--amber); border: 1px solid rgba(230,126,34,0.2); }
-
-  /* FILE UPLOAD */
   .file-upload-area { border: 2px dashed var(--border); border-radius: var(--radius-sm); padding: 24px; text-align: center; cursor: pointer; transition: all 0.2s; }
   .file-upload-area:hover { border-color: var(--teal); background: var(--teal-pale); }
   .file-upload-area .upload-icon { font-size: 28px; margin-bottom: 6px; }
@@ -158,13 +110,9 @@
   .file-preview.show { display: flex; }
   .file-preview .remove-file { margin-left: auto; cursor: pointer; color: var(--red); }
   input[type="file"] { display: none; }
-
-  /* VALIDATION ERROR */
   .field-error { font-size: 12px; color: var(--red); margin-top: 5px; display: none; }
   .field-error.show { display: block; }
   .input-error { border-color: var(--red) !important; }
-
-  /* NAV */
   .nav-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 28px 22px; border-top: 1px solid var(--border); }
   .btn-back { padding: 10px 20px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: white; color: var(--ink-soft); font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
   .btn-back:hover { border-color: var(--ink-soft); color: var(--ink); }
@@ -175,41 +123,23 @@
   .spinner { width: 15px; height: 15px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
   .btn-next.loading .spinner { display: block; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* CONTACT FOOTER */
-  .contact-footer {
-    text-align: center;
-    padding: 20px 24px;
-    background: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    margin-bottom: 24px;
-    border-top: 3px solid #1565c0;
-    font-size: 13px;
-    color: var(--ink-muted);
-  }
+  .contact-footer { text-align: center; padding: 20px 24px; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 24px; border-top: 3px solid #1565c0; font-size: 13px; color: var(--ink-muted); }
   .contact-footer strong { color: var(--ink-soft); display: block; margin-bottom: 8px; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; }
   .contact-footer a { color: #1565c0; text-decoration: none; font-weight: 500; }
-  .contact-footer a:hover { text-decoration: underline; }
   .contact-footer .contact-items { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
   .contact-footer .contact-item { display: flex; align-items: center; gap: 6px; }
-
-  /* SUCCESS */
-  .success-screen { display: none; text-align: center; padding: 60px 32px; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); animation: slideIn 0.5s ease forwards; }
+  .success-screen { display: none; text-align: center; padding: 60px 32px; background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); }
   .success-screen.show { display: block; }
   .success-icon { font-size: 60px; margin-bottom: 18px; }
   .success-screen h2 { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--ink); margin-bottom: 10px; }
   .success-screen p { color: var(--ink-soft); font-size: 14px; max-width: 400px; margin: 0 auto; line-height: 1.7; }
-
   @media (max-width: 600px) {
     .header-left { padding: 10px 14px; flex: 0 0 58%; }
     .header-title { font-size: 16px; }
-    .header-title .deva { font-size: 13px; }
     .logo-mark { width: 34px; height: 34px; font-size: 15px; }
     .header-tagline { font-size: 11px; }
     .header-progress { padding: 0 14px; }
     .progress-bar-track { max-width: 70px; }
-    .voice-ctrl-label { display: none; }
     .app-wrap { padding: 18px 12px 60px; }
     .section-body { padding: 18px; }
     .nav-row { padding: 14px 18px 18px; }
@@ -221,7 +151,6 @@
 </style>
 </head>
 <body>
-
 <header class="site-header">
   <div class="header-brand">
     <div class="header-left">
@@ -255,8 +184,6 @@
 </header>
 
 <div class="app-wrap">
-
-  <!-- HERO -->
   <div class="hero" id="heroBlock">
     <div class="hero-eyebrow">Employee Experience Programme</div>
     <h1>Be the customer.<br><em>Think like the customer.</em></h1>
@@ -265,13 +192,13 @@
     <div class="confidential-badge">🔒 Strictly Confidential · Internal Use Only</div>
   </div>
 
-  <!-- ══ SECTION 1 — ABOUT YOU ══ -->
+  <!-- SECTION 1 -->
   <div class="section-card active" id="sec1">
     <div class="section-header">
       <div class="section-icon">👤</div>
-      <div class="section-header-text">
+      <div>
         <div class="section-tag">Section 1 of 6</div>
-        <h2>About You & the Experience</h2>
+        <h2>About You &amp; the Experience</h2>
         <p>Basic details about yourself and the service you used</p>
       </div>
     </div>
@@ -279,12 +206,12 @@
       <div class="subsection">
         <div class="subsection-title">Your Details</div>
         <div class="field">
-          <label class="field-label">Full Name <span class="req">*</span></label>
+          <label class="field-label">Full Name <span style="color:var(--red)">*</span></label>
           <input type="text" id="f_name" placeholder="e.g. Priya Sharma">
           <div class="field-error" id="err_name">Please enter your full name</div>
         </div>
         <div class="field">
-          <label class="field-label">Department / Function <span class="req">*</span></label>
+          <label class="field-label">Department / Function <span style="color:var(--red)">*</span></label>
           <select id="f_dept">
             <option value="">— Select your department —</option>
             <option>Operations</option><option>Product</option><option>Customer Support</option>
@@ -294,13 +221,12 @@
           <div class="field-error" id="err_dept">Please select your department</div>
         </div>
         <div class="field">
-          <label class="field-label">City <span class="req">*</span></label>
+          <label class="field-label">City <span style="color:var(--red)">*</span></label>
           <input type="text" id="f_city" placeholder="e.g. Delhi, Mumbai, Bangalore">
           <div class="field-error" id="err_city">Please enter your city</div>
         </div>
-        <!-- FIX M1: Added age bracket and gender -->
         <div class="field">
-          <label class="field-label">Age Bracket <span class="req">*</span></label>
+          <label class="field-label">Age Bracket <span style="color:var(--red)">*</span></label>
           <div class="options-row" id="f_age">
             <div class="option-btn" data-val="18-25" onclick="selectOption(this,'f_age','radio')"><div class="check"></div>18–25</div>
             <div class="option-btn" data-val="26-35" onclick="selectOption(this,'f_age','radio')"><div class="check"></div>26–35</div>
@@ -311,7 +237,7 @@
           <div class="field-error" id="err_age">Please select your age bracket</div>
         </div>
         <div class="field">
-          <label class="field-label">Gender <span class="field-hint" style="font-style:normal;font-size:12px;color:var(--ink-muted)">(optional)</span></label>
+          <label class="field-label">Gender <span style="font-size:12px;color:var(--ink-muted)">(optional)</span></label>
           <div class="options-row" id="f_gender">
             <div class="option-btn" data-val="male" onclick="selectOption(this,'f_gender','radio')"><div class="check"></div>Male</div>
             <div class="option-btn" data-val="female" onclick="selectOption(this,'f_gender','radio')"><div class="check"></div>Female</div>
@@ -320,35 +246,33 @@
           </div>
         </div>
       </div>
-
       <div class="subsection">
         <div class="subsection-title">Service Details</div>
         <div class="field">
-          <label class="field-label">Date of Service <span class="req">*</span></label>
+          <label class="field-label">Date of Service <span style="color:var(--red)">*</span></label>
           <input type="date" id="f_date">
           <div class="field-error" id="err_date">Please select the date of service</div>
         </div>
-
         <div class="field">
-          <label class="field-label">Service type <span class="req">*</span></label>
+          <label class="field-label">Service type <span style="color:var(--red)">*</span></label>
           <div class="options-list" id="f_svctype">
-            <div class="option-btn" data-val="1mg" onclick="selectOption(this,'f_svctype','radio'); toggleCompetitorField(false)"><div class="check"></div>🏥 TATA 1MG Home Service</div>
-            <div class="option-btn" data-val="competitor" onclick="selectOption(this,'f_svctype','radio'); toggleCompetitorField(true)"><div class="check"></div>🔍 Competitor Service</div>
+            <div class="option-btn" data-val="1mg" onclick="selectOption(this,'f_svctype','radio');toggleCompetitorField(false)"><div class="check"></div>🏥 TATA 1MG Home Service</div>
+            <div class="option-btn" data-val="competitor" onclick="selectOption(this,'f_svctype','radio');toggleCompetitorField(true)"><div class="check"></div>🔍 Competitor Service</div>
           </div>
           <div class="field-error" id="err_svctype">Please select the service type</div>
         </div>
-        <div class="field" id="f_competitor_name_wrap" style="display:none;">
-          <label class="field-label">Competitor name <span class="req">*</span></label>
+        <div class="field" id="f_competitor_name_wrap" style="display:none">
+          <label class="field-label">Competitor name <span style="color:var(--red)">*</span></label>
           <input type="text" id="f_competitor_name" placeholder="e.g. Redcliffe Labs, Dr. Lal PathLabs">
         </div>
         <div class="field">
-          <label class="field-label">Test / Procedure Name <span class="req">*</span></label>
+          <label class="field-label">Test / Procedure Name <span style="color:var(--red)">*</span></label>
           <input type="text" id="f_test_name" placeholder="e.g. CBC, Lipid Panel, HbA1c, Vitamin D, ECG, X-Ray Chest...">
           <div class="field-hint">Enter the specific test or procedure you got done</div>
           <div class="field-error" id="err_test_name">Please enter the test or procedure name</div>
         </div>
         <div class="field">
-          <label class="field-label">Which service did you avail? <span class="req">*</span></label>
+          <label class="field-label">Which service did you avail? <span style="color:var(--red)">*</span></label>
           <div class="options-list" id="f_service">
             <div class="option-btn" data-val="pathology" onclick="selectService(this)"><div class="check"></div>🩸 Home Pathology / Blood Test</div>
             <div class="option-btn" data-val="nursing" onclick="selectService(this)"><div class="check"></div>👩‍⚕️ Nursing at Home</div>
@@ -364,40 +288,40 @@
     </div>
     <div class="nav-row">
       <div></div>
-      <button class="btn-next" onclick="goNext()">Next →<div class="spinner"></div></button>
+      <button class="btn-next" onclick="goNext()">Next &rarr;<div class="spinner"></div></button>
     </div>
   </div>
 
-  <!-- ══ SECTION 2 — SERVICE SPECIFIC ══ -->
+  <!-- SECTION 2 -->
   <div class="section-card" id="sec2">
     <div class="section-header">
       <div class="section-icon" id="sec2icon">🩸</div>
-      <div class="section-header-text">
+      <div>
         <div class="section-tag">Section 2 of 6</div>
         <h2 id="sec2title">Service Experience</h2>
-        <p id="sec2subtitle">Booking, communication & procedure</p>
+        <p id="sec2subtitle">Booking, communication &amp; procedure</p>
       </div>
     </div>
     <div class="section-body" id="sec2body"></div>
     <div class="nav-row">
-      <button class="btn-back" onclick="goBack()">← Back</button>
-      <button class="btn-next" onclick="goNext()">Next →<div class="spinner"></div></button>
+      <button class="btn-back" onclick="goBack()">&larr; Back</button>
+      <button class="btn-next" onclick="goNext()">Next &rarr;<div class="spinner"></div></button>
     </div>
   </div>
 
-  <!-- ══ SECTION 3 — SERVICE QUALITY ══ -->
+  <!-- SECTION 3 -->
   <div class="section-card" id="sec3">
     <div class="section-header">
       <div class="section-icon">⭐</div>
-      <div class="section-header-text">
+      <div>
         <div class="section-tag">Section 3 of 6</div>
-        <h2>Service Quality & TAT</h2>
-        <p>On-ground experience, professional conduct & turnaround</p>
+        <h2>Service Quality &amp; TAT</h2>
+        <p>On-ground experience, professional conduct &amp; turnaround</p>
       </div>
     </div>
     <div class="section-body">
       <div class="field">
-        <label class="field-label">Did the professional arrive on time? <span class="req">*</span></label>
+        <label class="field-label">Did the professional arrive on time? <span style="color:var(--red)">*</span></label>
         <div class="options-row" id="f_arrival">
           <div class="option-btn" data-val="ontime" onclick="selectOption(this,'f_arrival','radio')"><div class="check"></div>✅ On time</div>
           <div class="option-btn" data-val="early" onclick="selectOption(this,'f_arrival','radio')"><div class="check"></div>⏰ Early</div>
@@ -406,7 +330,7 @@
         <div class="field-error" id="err_arrival">Please select arrival status</div>
       </div>
       <div class="field">
-        <label class="field-label" id="f_listened_label">Did the professional communicate clearly and keep you informed throughout the visit? <span class="req">*</span></label>
+        <label class="field-label">Did the professional communicate clearly? <span style="color:var(--red)">*</span></label>
         <div class="options-row" id="f_listened">
           <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_listened','radio')"><div class="check"></div>Yes</div>
           <div class="option-btn" data-val="partial" onclick="selectOption(this,'f_listened','radio')"><div class="check"></div>Partially</div>
@@ -415,28 +339,23 @@
         <div class="field-error" id="err_listened">Please answer this question</div>
       </div>
       <div class="field">
-        <label class="field-label">How respected and comfortable did you feel throughout the visit? <span class="req">*</span></label>
+        <label class="field-label">How comfortable did you feel throughout the visit? <span style="color:var(--red)">*</span></label>
         <div class="scale-wrap" id="f_comfort"></div>
         <div class="scale-labels"><span>Very uncomfortable</span><span>Completely comfortable</span></div>
         <div class="field-error" id="err_comfort">Please select a rating</div>
       </div>
       <div class="field">
-        <label class="field-label">Overall service quality rating <span class="req">*</span></label>
+        <label class="field-label">Overall service quality rating <span style="color:var(--red)">*</span></label>
         <div class="scale-wrap" id="f_quality"></div>
         <div class="scale-labels"><span>Poor</span><span>Excellent</span></div>
         <div class="field-error" id="err_quality">Please select a rating</div>
       </div>
-
-      <!-- FIX B4/B5: Service-specific issues + TAT only for relevant services -->
       <div class="field" id="f_issues_wrap">
-        <label class="field-label">Any issues during the visit? <span class="field-hint" style="font-style:normal">(select all that apply)</span></label>
-        <div class="options-list" id="f_issues">
-          <!-- populated dynamically per service -->
-        </div>
+        <label class="field-label">Any issues during the visit? <span style="font-style:normal;font-size:12px">(select all that apply)</span></label>
+        <div class="options-list" id="f_issues"></div>
       </div>
-
-      <div class="field" id="f_tat_wrap" style="display:none;">
-        <label class="field-label">How was the report / result delivery time (TAT)? <span class="req">*</span></label>
+      <div class="field" id="f_tat_wrap" style="display:none">
+        <label class="field-label">How was the report / result delivery time (TAT)? <span style="color:var(--red)">*</span></label>
         <div class="options-list" id="f_tat">
           <div class="option-btn" data-val="faster" onclick="selectOption(this,'f_tat','radio')"><div class="check"></div>⚡ Faster than expected</div>
           <div class="option-btn" data-val="ontime" onclick="selectOption(this,'f_tat','radio')"><div class="check"></div>✅ On time as promised</div>
@@ -445,28 +364,23 @@
         </div>
         <div class="field-error" id="err_tat">Please select TAT status</div>
       </div>
-
-      <div class="field" id="f_report_quality_wrap" style="display:none;">
-        <label class="field-label">Report quality — accuracy, clarity, completeness <span class="req">*</span></label>
+      <div class="field" id="f_report_quality_wrap" style="display:none">
+        <label class="field-label">Report quality — accuracy, clarity, completeness <span style="color:var(--red)">*</span></label>
         <div class="scale-wrap" id="f_report_quality"></div>
         <div class="scale-labels"><span>Poor</span><span>Excellent</span></div>
         <div class="field-error" id="err_report_quality">Please select a rating</div>
       </div>
-
       <div class="field">
-        <!-- FIX V4: More specific prompt for quality notes -->
         <label class="field-label">Describe any specific quality or TAT issue you faced</label>
         <div class="voice-field">
           <textarea id="f_quality_notes" placeholder="e.g. Report arrived 3 hours late, no SMS notification sent..."></textarea>
-          <button class="voice-btn" onclick="toggleVoice('f_quality_notes',this)" title="Speak your answer">🎙</button>
+          <button class="voice-btn" onclick="toggleVoice('f_quality_notes',this)" title="Speak">🎙</button>
         </div>
         <div class="voice-status" id="vs_f_quality_notes"></div>
       </div>
-
-      <!-- FIX M6: Photo upload for issues -->
-      <div class="field" id="f_issue_photo_wrap" style="display:none;">
+      <div class="field" id="f_issue_photo_wrap" style="display:none">
         <label class="field-label">Optional: Attach a photo as evidence</label>
-        <div class="field-hint">Only if you selected an issue above — helps the quality team act faster</div>
+        <div class="field-hint">Only if you selected an issue above</div>
         <input type="file" id="f_issue_photo" accept=".jpg,.jpeg,.png" onchange="handlePhotoUpload(this)">
         <div class="file-upload-area" onclick="document.getElementById('f_issue_photo').click()">
           <div class="upload-icon">📷</div>
@@ -480,16 +394,16 @@
       </div>
     </div>
     <div class="nav-row">
-      <button class="btn-back" onclick="goBack()">← Back</button>
-      <button class="btn-next" onclick="goNext()">Next →<div class="spinner"></div></button>
+      <button class="btn-back" onclick="goBack()">&larr; Back</button>
+      <button class="btn-next" onclick="goNext()">Next &rarr;<div class="spinner"></div></button>
     </div>
   </div>
 
-  <!-- ══ SECTION 4 — CUSTOMER SUPPORT ══ -->
+  <!-- SECTION 4 -->
   <div class="section-card" id="sec4">
     <div class="section-header">
       <div class="section-icon">💬</div>
-      <div class="section-header-text">
+      <div>
         <div class="section-tag">Section 4 of 6</div>
         <h2>Customer Support Experience</h2>
         <p>Did you need help? How was the support?</p>
@@ -497,16 +411,16 @@
     </div>
     <div class="section-body">
       <div class="field">
-        <label class="field-label">Did you contact customer support? <span class="req">*</span></label>
+        <label class="field-label">Did you contact customer support? <span style="color:var(--red)">*</span></label>
         <div class="options-row" id="f_contacted_support">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_contacted_support','radio'); toggleSupportFields(true)"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_contacted_support','radio'); toggleSupportFields(false)"><div class="check"></div>No — didn't need to</div>
+          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_contacted_support','radio');toggleSupportFields(true)"><div class="check"></div>Yes</div>
+          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_contacted_support','radio');toggleSupportFields(false)"><div class="check"></div>No — didn't need to</div>
         </div>
         <div class="field-error" id="err_contacted_support">Please answer this question</div>
       </div>
-      <div id="support_detail_fields" style="display:none;">
+      <div id="support_detail_fields" style="display:none">
         <div class="field">
-          <label class="field-label">Channel used <span class="field-hint" style="font-style:normal">(select all that apply)</span></label>
+          <label class="field-label">Channel used <span style="font-size:12px">(select all that apply)</span></label>
           <div class="options-row" id="f_support_channel">
             <div class="option-btn checkbox" data-val="call" onclick="selectOption(this,'f_support_channel','checkbox')"><div class="check"></div>📞 Call</div>
             <div class="option-btn checkbox" data-val="chat" onclick="selectOption(this,'f_support_channel','checkbox')"><div class="check"></div>💬 In-app Chat</div>
@@ -529,68 +443,59 @@
         </div>
         <div class="field">
           <label class="field-label">What was the issue and how was it handled?</label>
-          <div class="field-hint">Briefly describe what happened and how support responded</div>
           <div class="voice-field">
-            <textarea id="f_support_detail" placeholder="e.g. Called to reschedule — waited 12 min on hold, agent rebooked within 2 min..."></textarea>
-            <button class="voice-btn" onclick="toggleVoice('f_support_detail',this)" title="Speak your answer">🎙</button>
+            <textarea id="f_support_detail" placeholder="e.g. Called to reschedule — waited 12 min on hold..."></textarea>
+            <button class="voice-btn" onclick="toggleVoice('f_support_detail',this)">🎙</button>
           </div>
           <div class="voice-status" id="vs_f_support_detail"></div>
         </div>
       </div>
     </div>
     <div class="nav-row">
-      <button class="btn-back" onclick="goBack()">← Back</button>
-      <button class="btn-next" onclick="goNext()">Next →<div class="spinner"></div></button>
+      <button class="btn-back" onclick="goBack()">&larr; Back</button>
+      <button class="btn-next" onclick="goNext()">Next &rarr;<div class="spinner"></div></button>
     </div>
   </div>
 
-  <!-- ══ SECTION 5 — KEY INSIGHTS ══ -->
+  <!-- SECTION 5 -->
   <div class="section-card" id="sec5">
     <div class="section-header">
       <div class="section-icon">💡</div>
-      <div class="section-header-text">
+      <div>
         <div class="section-tag">Section 5 of 6</div>
-        <h2>Key Insights & Recommendations</h2>
+        <h2>Key Insights &amp; Recommendations</h2>
         <p>Most important section — your voice drives improvements</p>
       </div>
     </div>
     <div class="section-body">
-      <div class="notice info">
-        <span>💡</span>
-        <span><strong>Think like a Product Manager.</strong> Be specific and actionable. Your insights go directly to the ANUBHAV team and leadership.</span>
-      </div>
+      <div class="notice info"><span>💡</span><span><strong>Think like a Product Manager.</strong> Be specific and actionable.</span></div>
       <div class="field">
-        <label class="field-label">Top 3 improvement recommendations <span class="req">*</span></label>
-        <div class="field-hint">Be specific — what should change, why, and what would the impact be?</div>
+        <label class="field-label">Top 3 improvement recommendations <span style="color:var(--red)">*</span></label>
         <div class="voice-field">
           <textarea id="f_recommendations" rows="5" placeholder="1. &#10;2. &#10;3. "></textarea>
-          <button class="voice-btn" onclick="toggleVoice('f_recommendations',this)" title="Speak your answer">🎙</button>
+          <button class="voice-btn" onclick="toggleVoice('f_recommendations',this)">🎙</button>
         </div>
         <div class="voice-status" id="vs_f_recommendations"></div>
         <div class="field-error" id="err_recommendations">Please share at least one recommendation</div>
       </div>
-
-      <!-- FIX V5: Split competitor comparison into two structured questions -->
-      <div class="field" id="f_comp_better_wrap" style="display:none;">
+      <div class="field" id="f_comp_better_wrap" style="display:none">
         <label class="field-label">One thing the competitor did <strong>better</strong> than 1MG</label>
         <div class="voice-field">
-          <textarea id="f_comp_better" rows="2" placeholder="e.g. Real-time GPS tracking of the professional..."></textarea>
-          <button class="voice-btn" onclick="toggleVoice('f_comp_better',this)" title="Speak your answer">🎙</button>
+          <textarea id="f_comp_better" rows="2" placeholder="e.g. Real-time GPS tracking..."></textarea>
+          <button class="voice-btn" onclick="toggleVoice('f_comp_better',this)">🎙</button>
         </div>
         <div class="voice-status" id="vs_f_comp_better"></div>
       </div>
-      <div class="field" id="f_1mg_better_wrap" style="display:none;">
+      <div class="field" id="f_1mg_better_wrap" style="display:none">
         <label class="field-label">One thing <strong>1MG did better</strong> than the competitor</label>
         <div class="voice-field">
-          <textarea id="f_1mg_better" rows="2" placeholder="e.g. Report interface is much cleaner and easier to share..."></textarea>
-          <button class="voice-btn" onclick="toggleVoice('f_1mg_better',this)" title="Speak your answer">🎙</button>
+          <textarea id="f_1mg_better" rows="2" placeholder="e.g. Report interface is cleaner..."></textarea>
+          <button class="voice-btn" onclick="toggleVoice('f_1mg_better',this)">🎙</button>
         </div>
         <div class="voice-status" id="vs_f_1mg_better"></div>
       </div>
-
-      <!-- FIX M3: Competitor pricing comparison -->
-      <div class="field" id="f_price_compare_wrap" style="display:none;">
-        <label class="field-label">How did the competitor's price compare to 1MG for a similar service?</label>
+      <div class="field" id="f_price_compare_wrap" style="display:none">
+        <label class="field-label">How did the competitor's price compare to 1MG?</label>
         <div class="options-row" id="f_price_compare">
           <div class="option-btn" data-val="much_cheaper" onclick="selectOption(this,'f_price_compare','radio')"><div class="check"></div>Much cheaper</div>
           <div class="option-btn" data-val="slightly_cheaper" onclick="selectOption(this,'f_price_compare','radio')"><div class="check"></div>Slightly cheaper</div>
@@ -599,27 +504,24 @@
           <div class="option-btn" data-val="much_costlier" onclick="selectOption(this,'f_price_compare','radio')"><div class="check"></div>Much costlier</div>
         </div>
       </div>
-
       <div class="field">
-        <label class="field-label">One thing that <span style="color:var(--teal);font-weight:600;">delighted</span> you ✨</label>
+        <label class="field-label">One thing that <span style="color:var(--teal);font-weight:600">delighted</span> you ✨</label>
         <div class="voice-field">
-          <textarea id="f_delight" rows="2" placeholder="e.g. Phlebotomist arrived 10 min early and explained every step calmly"></textarea>
-          <button class="voice-btn" onclick="toggleVoice('f_delight',this)" title="Speak your answer">🎙</button>
+          <textarea id="f_delight" rows="2" placeholder="e.g. Phlebotomist arrived 10 min early..."></textarea>
+          <button class="voice-btn" onclick="toggleVoice('f_delight',this)">🎙</button>
         </div>
         <div class="voice-status" id="vs_f_delight"></div>
       </div>
       <div class="field">
-        <label class="field-label">One thing that <span style="color:var(--red);font-weight:600;">frustrated</span> you 😤</label>
+        <label class="field-label">One thing that <span style="color:var(--red);font-weight:600">frustrated</span> you 😤</label>
         <div class="voice-field">
-          <textarea id="f_frustration" rows="2" placeholder="e.g. Report was 3 hours late with no update notification sent"></textarea>
-          <button class="voice-btn" onclick="toggleVoice('f_frustration',this)" title="Speak your answer">🎙</button>
+          <textarea id="f_frustration" rows="2" placeholder="e.g. Report was 3 hours late..."></textarea>
+          <button class="voice-btn" onclick="toggleVoice('f_frustration',this)">🎙</button>
         </div>
         <div class="voice-status" id="vs_f_frustration"></div>
       </div>
-
-      <!-- FIX M4: Reuse intent — separate from NPS -->
       <div class="field">
-        <label class="field-label">Would you personally use this service again? <span class="req">*</span></label>
+        <label class="field-label">Would you personally use this service again? <span style="color:var(--red)">*</span></label>
         <div class="options-row" id="f_reuse">
           <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_reuse','radio')"><div class="check"></div>Yes, definitely</div>
           <div class="option-btn" data-val="maybe" onclick="selectOption(this,'f_reuse','radio')"><div class="check"></div>Maybe</div>
@@ -627,687 +529,289 @@
         </div>
         <div class="field-error" id="err_reuse">Please answer this question</div>
       </div>
-
       <div class="field">
-        <label class="field-label">NPS — How likely are you to recommend this service to a friend or family member? <span class="req">*</span></label>
+        <label class="field-label">NPS — How likely are you to recommend this service? <span style="color:var(--red)">*</span></label>
         <div class="nps-wrap" id="f_nps"></div>
         <div class="scale-labels"><span>Not at all likely (0)</span><span>Extremely likely (10)</span></div>
         <div class="field-error" id="err_nps">Please select a score</div>
       </div>
-
       <div class="field">
-        <label class="field-label">Any other observation, context, or suggestion not covered above?</label>
-        <div class="field-hint">This is your open space — process issues, app bugs, staff behaviour, anything that matters</div>
+        <label class="field-label">Any other observation or suggestion?</label>
         <div class="voice-field">
-          <textarea id="f_anything_else" placeholder="e.g. The app crashed when I tried to reschedule. The phlebotomist forgot to bring ice packs for sample preservation..."></textarea>
-          <button class="voice-btn" onclick="toggleVoice('f_anything_else',this)" title="Speak your answer">🎙</button>
+          <textarea id="f_anything_else" placeholder="e.g. The app crashed when I tried to reschedule..."></textarea>
+          <button class="voice-btn" onclick="toggleVoice('f_anything_else',this)">🎙</button>
         </div>
         <div class="voice-status" id="vs_f_anything_else"></div>
       </div>
     </div>
     <div class="nav-row">
-      <button class="btn-back" onclick="goBack()">← Back</button>
-      <button class="btn-next" onclick="goNext()">Next →<div class="spinner"></div></button>
+      <button class="btn-back" onclick="goBack()">&larr; Back</button>
+      <button class="btn-next" id="sec5NextBtn" onclick="goNext()">Next &rarr;<div class="spinner"></div></button>
     </div>
   </div>
 
-  <!-- ══ SECTION 6 — INVOICE ══ -->
+  <!-- SECTION 6 -->
   <div class="section-card" id="sec6">
     <div class="section-header">
       <div class="section-icon">🧾</div>
-      <div class="section-header-text">
+      <div>
         <div class="section-tag">Section 6 of 6</div>
-        <h2>Invoice & Reimbursement</h2>
+        <h2>Invoice &amp; Reimbursement</h2>
         <p>Only applicable for competitor service experiences</p>
       </div>
     </div>
     <div class="section-body" id="sec6body"></div>
     <div class="nav-row">
-      <button class="btn-back" onclick="goBack()">← Back</button>
+      <button class="btn-back" onclick="goBack()">&larr; Back</button>
       <button class="btn-next btn-submit" onclick="submitForm()">Submit Feedback ✓<div class="spinner"></div></button>
     </div>
   </div>
 
-  <!-- CONTACT FOOTER -->
-  <div class=contact-footer>
+  <div class="contact-footer">
     <strong>Need help with this survey?</strong>
-    <div class=contact-items>
-      <div class=contact-item>📞 <a href=tel:6396271182>6396271182</a></div>
-      <div class=contact-item>✉️ <a href=mailto:manav.goel@1mg.com>manav.goel@1mg.com</a></div>
+    <div class="contact-items">
+      <div class="contact-item">📞 <a href="tel:6396271182">6396271182</a></div>
+      <div class="contact-item">✉️ <a href="mailto:manav.goel@1mg.com">manav.goel@1mg.com</a></div>
     </div>
   </div>
 
-  <!-- SUCCESS -->
   <div class="success-screen" id="successScreen">
     <div class="success-icon">🎉</div>
     <h2>Thank you for your feedback!</h2>
-    <p>Your insights have been recorded and shared with the ANUBHAV team and leadership. Together we'll make 1MG's home services exceptional.</p>
+    <p>Your insights have been recorded and shared with the ANUBHAV team and leadership.</p>
     <br>
-    <p style="color:var(--teal);font-weight:600;font-size:13px;">"Be the customer. Think like the customer. Improve for the customer."</p>
+    <p style="color:var(--teal);font-weight:600;font-size:13px">"Be the customer. Think like the customer. Improve for the customer."</p>
   </div>
-
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════
-// STATE
-// ═══════════════════════════════════════════════════
-let currentSection = 1;
-const totalSections = 6;
-let selectedService = null;
-let mediaRecorder = null;
-let audioChunks = [];
-let whisperLang = 'en'; // FIX B1
+var currentSection = 1;
+var totalSections = 6;
+var selectedService = null;
+var mediaRecorder = null;
+var audioChunks = [];
+var whisperLang = 'en';
+var REPORT_SERVICES = ['pathology','ecg','ppmc','xray'];
 
-// Services that have a report/TAT
-const REPORT_SERVICES = ['pathology', 'ecg', 'ppmc', 'xray'];
-
-// FIX B4: Service-specific issues lists
-const SERVICE_ISSUES = {
-  pathology: [
-    { val: 'double_prick', label: 'Multiple needle attempts' },
-    { val: 'painful', label: 'Painful collection' },
-    { val: 'hematoma', label: 'Hematoma / bruising' },
-    { val: 'no_swab', label: 'No alcohol swab used' },
-    { val: 'no_bandage', label: 'No bandage applied' },
-    { val: 'unsealed_kit', label: 'Equipment not sealed / unhygienic' },
-    { val: 'long_wait', label: 'Long wait time' },
-    { val: 'no_issues', label: '✅ No issues' },
-  ],
-  nursing: [
-    { val: 'wrong_procedure', label: 'Wrong or incomplete procedure' },
-    { val: 'missing_equipment', label: 'Equipment / supplies missing' },
-    { val: 'hygiene_concern', label: 'Hygiene concern' },
-    { val: 'no_followup_instructions', label: 'No post-care instructions given' },
-    { val: 'long_wait', label: 'Long wait time' },
-    { val: 'no_issues', label: '✅ No issues' },
-  ],
-  vaccination: [
-    { val: 'cold_chain_concern', label: 'Cold chain / storage concern' },
-    { val: 'painful', label: 'Painful / distressing administration' },
-    { val: 'wrong_dose', label: 'Dose or vaccine concern' },
-    { val: 'allergic_reaction', label: 'Mild adverse reaction noticed' },
-    { val: 'no_certificate', label: 'No vaccination certificate given' },
-    { val: 'no_issues', label: '✅ No issues' },
-  ],
-  xray: [
-    { val: 'no_lead_apron', label: 'No radiation protection (lead apron)' },
-    { val: 'equipment_issue', label: 'Equipment malfunction / poor condition' },
-    { val: 'poor_positioning', label: 'Poor / uncomfortable patient positioning' },
-    { val: 'no_image_check', label: 'Image quality not verified before leaving' },
-    { val: 'long_setup', label: 'Excessive setup time' },
-    { val: 'no_issues', label: '✅ No issues' },
-  ],
-  physio: [
-    { val: 'no_assessment', label: 'No initial assessment done' },
-    { val: 'too_painful', label: 'Session caused excessive pain' },
-    { val: 'no_explanation', label: 'Exercises not explained before doing' },
-    { val: 'no_home_routine', label: 'No home exercise routine given' },
-    { val: 'session_too_short', label: 'Session shorter than communicated' },
-    { val: 'no_issues', label: '✅ No issues' },
-  ],
-  ecg: [
-    { val: 'reusable_electrodes', label: 'Non-disposable electrodes concern' },
-    { val: 'poor_positioning', label: 'Uncomfortable positioning during recording' },
-    { val: 'motion_artifact', label: 'Recording had to be repeated' },
-    { val: 'equipment_issue', label: 'Equipment malfunction' },
-    { val: 'no_issues', label: '✅ No issues' },
-  ],
-  ppmc: [
-    { val: 'poor_coordination', label: 'Poor coordination between tests' },
-    { val: 'long_wait', label: 'Long gaps between tests' },
-    { val: 'hygiene_concern', label: 'Hygiene concern' },
-    { val: 'staff_attitude', label: 'Staff attitude concern' },
-    { val: 'no_issues', label: '✅ No issues' },
-  ],
+var SERVICE_ISSUES = {
+  pathology:[{val:'double_prick',label:'Multiple needle attempts'},{val:'painful',label:'Painful collection'},{val:'hematoma',label:'Hematoma / bruising'},{val:'no_swab',label:'No alcohol swab used'},{val:'no_bandage',label:'No bandage applied'},{val:'unsealed_kit',label:'Equipment not sealed / unhygienic'},{val:'long_wait',label:'Long wait time'},{val:'no_issues',label:'No issues'}],
+  nursing:[{val:'wrong_procedure',label:'Wrong or incomplete procedure'},{val:'missing_equipment',label:'Equipment / supplies missing'},{val:'hygiene_concern',label:'Hygiene concern'},{val:'no_followup_instructions',label:'No post-care instructions given'},{val:'long_wait',label:'Long wait time'},{val:'no_issues',label:'No issues'}],
+  vaccination:[{val:'cold_chain_concern',label:'Cold chain / storage concern'},{val:'painful',label:'Painful administration'},{val:'wrong_dose',label:'Dose or vaccine concern'},{val:'allergic_reaction',label:'Mild adverse reaction'},{val:'no_certificate',label:'No vaccination certificate given'},{val:'no_issues',label:'No issues'}],
+  xray:[{val:'no_lead_apron',label:'No radiation protection (lead apron)'},{val:'equipment_issue',label:'Equipment malfunction'},{val:'poor_positioning',label:'Poor patient positioning'},{val:'no_image_check',label:'Image quality not verified'},{val:'long_setup',label:'Excessive setup time'},{val:'no_issues',label:'No issues'}],
+  physio:[{val:'no_assessment',label:'No initial assessment done'},{val:'too_painful',label:'Session caused excessive pain'},{val:'no_explanation',label:'Exercises not explained'},{val:'no_home_routine',label:'No home exercise routine given'},{val:'session_too_short',label:'Session shorter than communicated'},{val:'no_issues',label:'No issues'}],
+  ecg:[{val:'reusable_electrodes',label:'Non-disposable electrodes concern'},{val:'poor_positioning',label:'Uncomfortable positioning'},{val:'motion_artifact',label:'Recording had to be repeated'},{val:'equipment_issue',label:'Equipment malfunction'},{val:'no_issues',label:'No issues'}],
+  ppmc:[{val:'poor_coordination',label:'Poor coordination between tests'},{val:'long_wait',label:'Long gaps between tests'},{val:'hygiene_concern',label:'Hygiene concern'},{val:'staff_attitude',label:'Staff attitude concern'},{val:'no_issues',label:'No issues'}]
 };
 
-// ═══════════════════════════════════════════════════
-// LANGUAGE SELECTOR (FIX B1)
-// ═══════════════════════════════════════════════════
+var serviceConfig = {
+  pathology:{icon:'🩸',title:'Pathology — Blood Collection at Home',subtitle:'Booking, communication & collection experience'},
+  nursing:{icon:'👩‍⚕️',title:'Nursing at Home',subtitle:'Booking, communication & nursing procedure'},
+  vaccination:{icon:'💉',title:'Vaccination at Home',subtitle:'Booking, communication & vaccination procedure'},
+  xray:{icon:'🩻',title:'X-Ray at Home',subtitle:'Booking, communication & X-ray procedure'},
+  physio:{icon:'🏃',title:'Physiotherapy at Home',subtitle:'Booking, communication & therapy session'},
+  ecg:{icon:'❤️',title:'ECG at Home',subtitle:'Booking, communication & ECG procedure'},
+  ppmc:{icon:'🔬',title:'PPMC / Preventive Health Check',subtitle:'Booking, communication & health check experience'}
+};
+
 function setLang(lang) {
   whisperLang = lang;
-  document.getElementById('lang_en').classList.toggle('active', lang === 'en');
-  document.getElementById('lang_hi').classList.toggle('active', lang === 'hi');
+  document.getElementById('lang_en').classList.toggle('active', lang==='en');
+  document.getElementById('lang_hi').classList.toggle('active', lang==='hi');
 }
 
-// ═══════════════════════════════════════════════════
-// SECTION 2 BUILDER — service-specific questions
-// ═══════════════════════════════════════════════════
-const serviceConfig = {
-  pathology: { icon: '🩸', title: 'Pathology — Blood Collection at Home', subtitle: 'Booking, communication & collection experience' },
-  nursing:   { icon: '👩‍⚕️', title: 'Nursing at Home', subtitle: 'Booking, communication & nursing procedure' },
-  vaccination:{ icon: '💉', title: 'Vaccination at Home', subtitle: 'Booking, communication & vaccination procedure' },
-  xray:      { icon: '🩻', title: 'X-Ray at Home', subtitle: 'Booking, communication & X-ray procedure' },
-  physio:    { icon: '🏃', title: 'Physiotherapy at Home', subtitle: 'Booking, communication & therapy session' },
-  ecg:       { icon: '❤️', title: 'ECG at Home', subtitle: 'Booking, communication & ECG procedure' },
-  ppmc:      { icon: '🔬', title: 'PPMC / Preventive Health Check', subtitle: 'Booking, communication & health check experience' },
-};
+function getVal(id) { var el=document.getElementById(id); return el?el.value:''; }
 
 function buildSec2(service) {
-  const cfg = serviceConfig[service];
+  var cfg = serviceConfig[service];
   document.getElementById('sec2icon').textContent = cfg.icon;
   document.getElementById('sec2title').textContent = cfg.title;
   document.getElementById('sec2subtitle').textContent = cfg.subtitle;
+  var isComp = getFieldVal('f_svctype')==='competitor';
+  var compName = getVal('f_competitor_name') || 'the competitor';
+  var providerName = isComp ? compName : '1MG';
+  var offersHint = isComp ? 'Share any pricing observations or discount offers noticed' : 'Share any pricing observations, failed coupon codes, or comparison with competitors';
+  var offersPlaceholder = isComp ? 'e.g. No discount available, priced higher than 1MG...' : 'e.g. Found a 15% cashback offer but coupon code kept failing...';
 
-  // Determine provider name for question labels
-  const isCompetitor = getFieldVal('f_svctype') === 'competitor';
-  const compName = (document.getElementById('f_competitor_name') || {}).value || 'the competitor';
-  const providerName = isCompetitor ? compName : '1MG';
-  const offersHint = isCompetitor
-    ? 'Share any pricing observations or discount offers noticed'
-    : 'Share any pricing observations, failed coupon codes, or comparison with competitors';
-  const offersPlaceholder = isCompetitor
-    ? 'e.g. No discount available, priced ₹200 higher than 1MG...'
-    : 'e.g. Found a 15% cashback offer but coupon code kept failing...';
+  var html = '<div class="subsection"><div class="subsection-title">Booking &amp; Communication</div>'
+    +'<div class="field"><label class="field-label">How easy was it to book the service? <span style="color:var(--red)">*</span></label><div class="scale-wrap" id="f_booking_ease"></div><div class="scale-labels"><span>Very Difficult</span><span>Very Easy</span></div><div class="field-error" id="err_booking_ease">Please select a rating</div></div>'
+    +'<div class="field"><label class="field-label">Were your preferred time slots available? <span style="color:var(--red)">*</span></label><div class="options-row" id="f_slots"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_slots\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="partial" onclick="selectOption(this,\'f_slots\',\'radio\')"><div class="check"></div>Partially</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_slots\',\'radio\')"><div class="check"></div>No</div></div><div class="field-error" id="err_slots">Please select an option</div></div>'
+    +'<div class="field"><label class="field-label">Was pricing clear before booking? <span style="color:var(--red)">*</span></label><div class="scale-wrap" id="f_pricing_clarity"></div><div class="scale-labels"><span>Not at all clear</span><span>Completely clear</span></div><div class="field-error" id="err_pricing_clarity">Please select a rating</div></div>'
+    +'<div class="field"><label class="field-label">Did '+providerName+'\'s pre-visit communication prepare you adequately? <span style="color:var(--red)">*</span></label><div class="options-row" id="f_precomms"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_precomms\',\'radio\')"><div class="check"></div>Yes, fully</div><div class="option-btn" data-val="partial" onclick="selectOption(this,\'f_precomms\',\'radio\')"><div class="check"></div>Partially</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_precomms\',\'radio\')"><div class="check"></div>No</div></div><div class="field-error" id="err_precomms">Please select an option</div></div>'
+    +'<div class="field"><label class="field-label">Was the professional\'s name and contact shared before the visit?</label><div class="options-row" id="f_pro_shared"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_pro_shared\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_pro_shared\',\'radio\')"><div class="check"></div>No</div></div></div>'
+    +'<div class="field"><label class="field-label">Were you informed proactively about any delays?</label><div class="options-row" id="f_delay_informed"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_delay_informed\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_delay_informed\',\'radio\')"><div class="check"></div>No</div><div class="option-btn" data-val="na" onclick="selectOption(this,\'f_delay_informed\',\'radio\')"><div class="check"></div>No delay occurred</div></div></div>'
+    +'<div class="field"><label class="field-label">Offers / discounts — any observations?</label><div class="field-hint">'+offersHint+'</div><div class="voice-field"><textarea id="f_offers_notes" placeholder="'+offersPlaceholder+'"></textarea><button class="voice-btn" onclick="toggleVoice(\'f_offers_notes\',this)">🎙</button></div><div class="voice-status" id="vs_f_offers_notes"></div></div>'
+    +'</div>';
 
-  // Booking subsection — common to all
-  let html = `
-  <div class="subsection">
-    <div class="subsection-title">📅 Booking & Communication</div>
-    <div class="field">
-      <label class="field-label">How easy was it to book the service? <span class="req">*</span></label>
-      <div class="scale-wrap" id="f_booking_ease"></div>
-      <div class="scale-labels"><span>Very Difficult</span><span>Very Easy</span></div>
-      <div class="field-error" id="err_booking_ease">Please select a rating</div>
-    </div>
-    <div class="field">
-      <label class="field-label">Were your preferred time slots available? <span class="req">*</span></label>
-      <div class="options-row" id="f_slots">
-        <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_slots','radio')"><div class="check"></div>✅ Yes</div>
-        <div class="option-btn" data-val="partial" onclick="selectOption(this,'f_slots','radio')"><div class="check"></div>⚠️ Partially</div>
-        <div class="option-btn" data-val="no" onclick="selectOption(this,'f_slots','radio')"><div class="check"></div>❌ No</div>
-      </div>
-      <div class="field-error" id="err_slots">Please select an option</div>
-    </div>
-    <div class="field">
-      <label class="field-label">Was pricing clear and transparent before you confirmed the booking? <span class="req">*</span></label>
-      <div class="scale-wrap" id="f_pricing_clarity"></div>
-      <div class="scale-labels"><span>Not at all clear</span><span>Completely clear</span></div>
-      <div class="field-error" id="err_pricing_clarity">Please select a rating</div>
-    </div>
-    <div class="field">
-      <label class="field-label">Did ${providerName}'s pre-visit communication give you everything you needed to prepare? <span class="req">*</span></label>
-      <div class="options-row" id="f_precomms">
-        <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_precomms','radio')"><div class="check"></div>Yes, fully</div>
-        <div class="option-btn" data-val="partial" onclick="selectOption(this,'f_precomms','radio')"><div class="check"></div>Partially</div>
-        <div class="option-btn" data-val="no" onclick="selectOption(this,'f_precomms','radio')"><div class="check"></div>No</div>
-      </div>
-      <div class="field-error" id="err_precomms">Please select an option</div>
-    </div>
-    <div class="field">
-      <label class="field-label">Was the professional's name and contact shared before the visit?</label>
-      <div class="options-row" id="f_pro_shared">
-        <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_pro_shared','radio')"><div class="check"></div>Yes</div>
-        <div class="option-btn" data-val="no" onclick="selectOption(this,'f_pro_shared','radio')"><div class="check"></div>No</div>
-      </div>
-    </div>
-    <div class="field">
-      <label class="field-label">Were you informed proactively about any delays or schedule changes?</label>
-      <div class="options-row" id="f_delay_informed">
-        <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_delay_informed','radio')"><div class="check"></div>Yes</div>
-        <div class="option-btn" data-val="no" onclick="selectOption(this,'f_delay_informed','radio')"><div class="check"></div>No</div>
-        <div class="option-btn" data-val="na" onclick="selectOption(this,'f_delay_informed','radio')"><div class="check"></div>No delay occurred</div>
-      </div>
-    </div>
-    <div class="field">
-      <label class="field-label">Offers / discounts — any observations?</label>
-      <div class="field-hint">${offersHint}</div>
-      <div class="voice-field">
-        <textarea id="f_offers_notes" placeholder="${offersPlaceholder}"></textarea>
-        <button class="voice-btn" onclick="toggleVoice('f_offers_notes',this)" title="Speak your answer">🎙</button>
-      </div>
-      <div class="voice-status" id="vs_f_offers_notes"></div>
-    </div>
-  </div>`;
+  html += '<div class="subsection"><div class="subsection-title">Professional Conduct</div>'
+    +'<div class="field"><label class="field-label">Did the professional introduce themselves and explain what they were going to do? <span style="color:var(--red)">*</span></label><div class="options-row" id="f_introduction"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_introduction\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_introduction\',\'radio\')"><div class="check"></div>No</div></div><div class="field-error" id="err_introduction">Please answer this question</div></div>'
+    +'<div class="field"><label class="field-label">Was the professional in proper uniform and wearing PPE? <span style="color:var(--red)">*</span></label><div class="options-row" id="f_ppe"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_ppe\',\'radio\')"><div class="check"></div>Yes, fully</div><div class="option-btn" data-val="partial" onclick="selectOption(this,\'f_ppe\',\'radio\')"><div class="check"></div>Partially</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_ppe\',\'radio\')"><div class="check"></div>No</div></div><div class="field-error" id="err_ppe">Please answer this question</div></div>'
+    +'<div class="field"><label class="field-label">Did the professional clean up before leaving?</label><div class="options-row" id="f_comfort_effort"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_comfort_effort\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_comfort_effort\',\'radio\')"><div class="check"></div>No</div><div class="option-btn" data-val="na" onclick="selectOption(this,\'f_comfort_effort\',\'radio\')"><div class="check"></div>N/A</div></div></div>'
+    +'<div class="field"><label class="field-label">Any comments on the professional\'s conduct?</label><div class="voice-field"><textarea id="f_pro_notes" placeholder="e.g. Very patient with my elderly father..."></textarea><button class="voice-btn" onclick="toggleVoice(\'f_pro_notes\',this)">🎙</button></div><div class="voice-status" id="vs_f_pro_notes"></div></div>'
+    +'</div>';
 
-  // Professional conduct — common to all
-  html += `
-  <div class="subsection">
-    <div class="subsection-title">🤝 Professional Conduct</div>
-    <div class="field">
-      <label class="field-label">Did the professional introduce themselves and explain what they were going to do? <span class="req">*</span></label>
-      <div class="options-row" id="f_introduction">
-        <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_introduction','radio')"><div class="check"></div>Yes</div>
-        <div class="option-btn" data-val="no" onclick="selectOption(this,'f_introduction','radio')"><div class="check"></div>No</div>
-      </div>
-      <div class="field-error" id="err_introduction">Please answer this question</div>
-    </div>
-    <div class="field">
-      <label class="field-label">Was the professional in proper uniform and wearing PPE (gloves, mask)? <span class="req">*</span></label>
-      <div class="options-row" id="f_ppe">
-        <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_ppe','radio')"><div class="check"></div>Yes, fully</div>
-        <div class="option-btn" data-val="partial" onclick="selectOption(this,'f_ppe','radio')"><div class="check"></div>Partially</div>
-        <div class="option-btn" data-val="no" onclick="selectOption(this,'f_ppe','radio')"><div class="check"></div>No</div>
-      </div>
-      <div class="field-error" id="err_ppe">Please answer this question</div>
-    </div>
-    <div class="field">
-      <label class="field-label">Did the professional clean up and restore the area before leaving?</label>
-      <div class="options-row" id="f_comfort_effort">
-        <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_comfort_effort','radio')"><div class="check"></div>Yes</div>
-        <div class="option-btn" data-val="no" onclick="selectOption(this,'f_comfort_effort','radio')"><div class="check"></div>No</div>
-        <div class="option-btn" data-val="na" onclick="selectOption(this,'f_comfort_effort','radio')"><div class="check"></div>N/A</div>
-      </div>
-    </div>
-    <div class="field">
-      <label class="field-label">Any comments on the professional's conduct or behaviour?</label>
-      <div class="voice-field">
-        <textarea id="f_pro_notes" placeholder="e.g. Very patient with my elderly father, explained everything step by step..."></textarea>
-        <button class="voice-btn" onclick="toggleVoice('f_pro_notes',this)" title="Speak your answer">🎙</button>
-      </div>
-      <div class="voice-status" id="vs_f_pro_notes"></div>
-    </div>
-  </div>`;
-
-  // Service-specific procedure blocks
-  if (service === 'pathology') {
-    html += `
-    <div class="subsection">
-      <div class="subsection-title">🔬 Collection Procedure</div>
-      <div class="field">
-        <label class="field-label">Were new, sealed needles and equipment used?  <span class="req">*</span></label>
-        <div class="options-row" id="f_sealed">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_sealed','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_sealed','radio')"><div class="check"></div>No</div>
-          <div class="option-btn" data-val="unsure" onclick="selectOption(this,'f_sealed','radio')"><div class="check"></div>Not sure</div>
-        </div>
-        <div class="field-error" id="err_sealed">Please answer this question</div>
-      </div>
-      <div class="field">
-        <label class="field-label">Was the injection site cleaned with an alcohol swab before collection?</label>
-        <div class="options-row" id="f_swab">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_swab','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_swab','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Was a bandage applied after collection?</label>
-        <div class="options-row" id="f_bandage">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_bandage','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_bandage','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Was the area cleaned up after collection?</label>
-        <div class="options-row" id="f_cleanup">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_cleanup','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_cleanup','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-    </div>`;
+  if (service==='pathology') {
+    html += '<div class="subsection"><div class="subsection-title">Collection Procedure</div>'
+      +'<div class="field"><label class="field-label">Were new, sealed needles and equipment used? <span style="color:var(--red)">*</span></label><div class="options-row" id="f_sealed"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_sealed\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_sealed\',\'radio\')"><div class="check"></div>No</div><div class="option-btn" data-val="unsure" onclick="selectOption(this,\'f_sealed\',\'radio\')"><div class="check"></div>Not sure</div></div><div class="field-error" id="err_sealed">Please answer this question</div></div>'
+      +'<div class="field"><label class="field-label">Was the injection site cleaned with an alcohol swab?</label><div class="options-row" id="f_swab"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_swab\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_swab\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'<div class="field"><label class="field-label">Was a bandage applied after collection?</label><div class="options-row" id="f_bandage"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_bandage\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_bandage\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'<div class="field"><label class="field-label">Was the area cleaned up after collection?</label><div class="options-row" id="f_cleanup"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_cleanup\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_cleanup\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'</div>';
   }
-
-  if (service === 'ecg') {
-    html += `
-    <div class="subsection">
-      <div class="subsection-title">❤️ ECG Procedure</div>
-      <div class="field">
-        <label class="field-label">Were disposable electrodes used?</label>
-        <div class="options-row" id="f_ecg_electrodes">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_ecg_electrodes','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_ecg_electrodes','radio')"><div class="check"></div>No</div>
-          <div class="option-btn" data-val="unsure" onclick="selectOption(this,'f_ecg_electrodes','radio')"><div class="check"></div>Not sure</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Was the skin prepped correctly before electrode placement?</label>
-        <div class="options-row" id="f_ecg_skin_prep">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_ecg_skin_prep','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_ecg_skin_prep','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Were you positioned comfortably and kept still during the recording?</label>
-        <div class="options-row" id="f_ecg_positioning">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_ecg_positioning','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_ecg_positioning','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Did the technician verify trace quality before leaving?</label>
-        <div class="options-row" id="f_ecg_trace_quality">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_ecg_trace_quality','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_ecg_trace_quality','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Were you told what to do next with the report / when to consult a doctor?</label>
-        <div class="options-row" id="f_ecg_guidance">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_ecg_guidance','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_ecg_guidance','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-    </div>`;
+  if (service==='ecg') {
+    html += '<div class="subsection"><div class="subsection-title">ECG Procedure</div>'
+      +'<div class="field"><label class="field-label">Were disposable electrodes used?</label><div class="options-row" id="f_ecg_electrodes"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_ecg_electrodes\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_ecg_electrodes\',\'radio\')"><div class="check"></div>No</div><div class="option-btn" data-val="unsure" onclick="selectOption(this,\'f_ecg_electrodes\',\'radio\')"><div class="check"></div>Not sure</div></div></div>'
+      +'<div class="field"><label class="field-label">Was skin prepped before electrode placement?</label><div class="options-row" id="f_ecg_skin_prep"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_ecg_skin_prep\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_ecg_skin_prep\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'<div class="field"><label class="field-label">Were you positioned comfortably during the recording?</label><div class="options-row" id="f_ecg_positioning"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_ecg_positioning\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_ecg_positioning\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'<div class="field"><label class="field-label">Did the technician verify trace quality before leaving?</label><div class="options-row" id="f_ecg_trace_quality"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_ecg_trace_quality\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_ecg_trace_quality\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'<div class="field"><label class="field-label">Were you told when to consult a doctor?</label><div class="options-row" id="f_ecg_guidance"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_ecg_guidance\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_ecg_guidance\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'</div>';
   }
-
-  if (service === 'ppmc') {
-    html += `
-    <div class="subsection">
-      <div class="subsection-title">🔬 Health Check Procedure</div>
-      <div class="field">
-        <label class="field-label">Were all tests in your PPMC package actually conducted? <span class="req">*</span></label>
-        <div class="options-row" id="f_ppmc_all_done">
-          <div class="option-btn" data-val="yes_all" onclick="selectOption(this,'f_ppmc_all_done','radio')"><div class="check"></div>Yes, all done</div>
-          <div class="option-btn" data-val="some_missed" onclick="selectOption(this,'f_ppmc_all_done','radio')"><div class="check"></div>Some were missed</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_ppmc_all_done','radio')"><div class="check"></div>No</div>
-        </div>
-        <div class="field-error" id="err_ppmc_all_done">Please answer this question</div>
-      </div>
-      <div class="field">
-        <label class="field-label">Was the visit well-coordinated with no unnecessary gaps between tests?</label>
-        <div class="options-row" id="f_ppmc_coordination">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_ppmc_coordination','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_ppmc_coordination','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Was a health summary or counselling session provided after the check?</label>
-        <div class="options-row" id="f_ppmc_counselling">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_ppmc_counselling','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_ppmc_counselling','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-    </div>`;
+  if (service==='ppmc') {
+    html += '<div class="subsection"><div class="subsection-title">Health Check Procedure</div>'
+      +'<div class="field"><label class="field-label">Were all tests in your package conducted? <span style="color:var(--red)">*</span></label><div class="options-row" id="f_ppmc_all_done"><div class="option-btn" data-val="yes_all" onclick="selectOption(this,\'f_ppmc_all_done\',\'radio\')"><div class="check"></div>Yes, all done</div><div class="option-btn" data-val="some_missed" onclick="selectOption(this,\'f_ppmc_all_done\',\'radio\')"><div class="check"></div>Some were missed</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_ppmc_all_done\',\'radio\')"><div class="check"></div>No</div></div><div class="field-error" id="err_ppmc_all_done">Please answer this question</div></div>'
+      +'<div class="field"><label class="field-label">Was the visit well-coordinated?</label><div class="options-row" id="f_ppmc_coordination"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_ppmc_coordination\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_ppmc_coordination\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'<div class="field"><label class="field-label">Was a health summary or counselling provided?</label><div class="options-row" id="f_ppmc_counselling"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_ppmc_counselling\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_ppmc_counselling\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'</div>';
   }
-
-  if (service === 'vaccination') {
-    html += `
-    <div class="subsection">
-      <div class="subsection-title">💉 Vaccination Procedure</div>
-      <div class="field">
-        <label class="field-label">Were you or the patient asked about allergies and prior vaccinations before proceeding? <span class="req">*</span></label>
-        <div class="options-row" id="f_allergy_check">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_allergy_check','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_allergy_check','radio')"><div class="check"></div>No</div>
-        </div>
-        <div class="field-error" id="err_allergy_check">Please answer this question</div>
-      </div>
-      <div class="field">
-        <label class="field-label">Did the vaccine appear to be stored correctly (arrived in a cold bag / container)?</label>
-        <div class="options-row" id="f_cold_chain">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_cold_chain','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_cold_chain','radio')"><div class="check"></div>No</div>
-          <div class="option-btn" data-val="unsure" onclick="selectOption(this,'f_cold_chain','radio')"><div class="check"></div>Not sure</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Were you asked to stay and be observed for at least 10–15 minutes after vaccination?</label>
-        <div class="options-row" id="f_observation">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_observation','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_observation','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Were post-vaccination care instructions given (what to watch for, when to call)?</label>
-        <div class="options-row" id="f_vacc_instructions">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_vacc_instructions','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_vacc_instructions','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Was a vaccination record or certificate provided?</label>
-        <div class="options-row" id="f_vacc_cert">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_vacc_cert','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_vacc_cert','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-    </div>`;
+  if (service==='vaccination') {
+    html += '<div class="subsection"><div class="subsection-title">Vaccination Procedure</div>'
+      +'<div class="field"><label class="field-label">Were you asked about allergies before proceeding? <span style="color:var(--red)">*</span></label><div class="options-row" id="f_allergy_check"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_allergy_check\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_allergy_check\',\'radio\')"><div class="check"></div>No</div></div><div class="field-error" id="err_allergy_check">Please answer this question</div></div>'
+      +'<div class="field"><label class="field-label">Did the vaccine arrive in a cold bag?</label><div class="options-row" id="f_cold_chain"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_cold_chain\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_cold_chain\',\'radio\')"><div class="check"></div>No</div><div class="option-btn" data-val="unsure" onclick="selectOption(this,\'f_cold_chain\',\'radio\')"><div class="check"></div>Not sure</div></div></div>'
+      +'<div class="field"><label class="field-label">Were you asked to stay for 10-15 min observation?</label><div class="options-row" id="f_observation"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_observation\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_observation\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'<div class="field"><label class="field-label">Were post-vaccination care instructions given?</label><div class="options-row" id="f_vacc_instructions"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_vacc_instructions\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_vacc_instructions\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'<div class="field"><label class="field-label">Was a vaccination certificate provided?</label><div class="options-row" id="f_vacc_cert"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_vacc_cert\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_vacc_cert\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'</div>';
   }
-
-  if (service === 'nursing') {
-    html += `
-    <div class="subsection">
-      <div class="subsection-title">👩‍⚕️ Nursing Procedure</div>
-      <div class="field">
-        <label class="field-label">Were all materials (syringes, dressings, etc.) visibly new, sealed, and hygienic? <span class="req">*</span></label>
-        <div class="options-row" id="f_materials">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_materials','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_materials','radio')"><div class="check"></div>No</div>
-          <div class="option-btn" data-val="unsure" onclick="selectOption(this,'f_materials','radio')"><div class="check"></div>Not sure</div>
-        </div>
-        <div class="field-error" id="err_materials">Please answer this question</div>
-      </div>
-      <div class="field">
-        <label class="field-label">Were post-procedure care instructions clearly communicated before the nurse left?</label>
-        <div class="options-row" id="f_followup_care">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_followup_care','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_followup_care','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-    </div>`;
+  if (service==='nursing') {
+    html += '<div class="subsection"><div class="subsection-title">Nursing Procedure</div>'
+      +'<div class="field"><label class="field-label">Were all materials new, sealed, and hygienic? <span style="color:var(--red)">*</span></label><div class="options-row" id="f_materials"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_materials\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_materials\',\'radio\')"><div class="check"></div>No</div><div class="option-btn" data-val="unsure" onclick="selectOption(this,\'f_materials\',\'radio\')"><div class="check"></div>Not sure</div></div><div class="field-error" id="err_materials">Please answer this question</div></div>'
+      +'<div class="field"><label class="field-label">Were post-procedure care instructions given?</label><div class="options-row" id="f_followup_care"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_followup_care\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_followup_care\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'</div>';
   }
-
-  if (service === 'xray') {
-    html += `
-    <div class="subsection">
-      <div class="subsection-title">🩻 X-Ray Procedure</div>
-      <div class="field">
-        <label class="field-label">Were radiation safety precautions followed — was a lead apron provided? <span class="req">*</span></label>
-        <div class="options-row" id="f_radiation_safety">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_radiation_safety','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_radiation_safety','radio')"><div class="check"></div>No</div>
-          <div class="option-btn" data-val="na" onclick="selectOption(this,'f_radiation_safety','radio')"><div class="check"></div>Not applicable</div>
-        </div>
-        <div class="field-error" id="err_radiation_safety">Please answer this question</div>
-      </div>
-      <div class="field">
-        <label class="field-label">Did the technician verify image quality before packing up and leaving?</label>
-        <div class="options-row" id="f_image_quality">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_image_quality','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_image_quality','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Were you told what to do with the report and when to consult a doctor?</label>
-        <div class="options-row" id="f_report_guidance">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_report_guidance','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_report_guidance','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-    </div>`;
+  if (service==='xray') {
+    html += '<div class="subsection"><div class="subsection-title">X-Ray Procedure</div>'
+      +'<div class="field"><label class="field-label">Were radiation safety precautions followed? <span style="color:var(--red)">*</span></label><div class="options-row" id="f_radiation_safety"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_radiation_safety\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_radiation_safety\',\'radio\')"><div class="check"></div>No</div><div class="option-btn" data-val="na" onclick="selectOption(this,\'f_radiation_safety\',\'radio\')"><div class="check"></div>Not applicable</div></div><div class="field-error" id="err_radiation_safety">Please answer this question</div></div>'
+      +'<div class="field"><label class="field-label">Did the technician verify image quality before leaving?</label><div class="options-row" id="f_image_quality"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_image_quality\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_image_quality\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'<div class="field"><label class="field-label">Were you told what to do with the report?</label><div class="options-row" id="f_report_guidance"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_report_guidance\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_report_guidance\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'</div>';
   }
-
-  if (service === 'physio') {
-    html += `
-    <div class="subsection">
-      <div class="subsection-title">🏃 Physiotherapy Session</div>
-      <div class="field">
-        <label class="field-label">Did the therapist begin with a physical assessment before starting treatment? <span class="req">*</span></label>
-        <div class="options-row" id="f_assessment">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_assessment','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_assessment','radio')"><div class="check"></div>No</div>
-        </div>
-        <div class="field-error" id="err_assessment">Please answer this question</div>
-      </div>
-      <div class="field">
-        <label class="field-label">Were exercises and techniques explained and demonstrated before being performed on you?</label>
-        <div class="options-row" id="f_techniques_explained">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_techniques_explained','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_techniques_explained','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Did the therapist adjust intensity based on your feedback about pain or discomfort?</label>
-        <div class="options-row" id="f_adaptive">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_adaptive','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_adaptive','radio')"><div class="check"></div>No</div>
-          <div class="option-btn" data-val="na" onclick="selectOption(this,'f_adaptive','radio')"><div class="check"></div>N/A</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Were home exercises demonstrated clearly with instructions to follow between sessions?</label>
-        <div class="options-row" id="f_home_exercises">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_home_exercises','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_home_exercises','radio')"><div class="check"></div>No</div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="field-label">Have you noticed any improvement since the session(s)?</label>
-        <div class="options-row" id="f_improvement">
-          <div class="option-btn" data-val="yes" onclick="selectOption(this,'f_improvement','radio')"><div class="check"></div>Yes</div>
-          <div class="option-btn" data-val="no" onclick="selectOption(this,'f_improvement','radio')"><div class="check"></div>No</div>
-          <div class="option-btn" data-val="too_early" onclick="selectOption(this,'f_improvement','radio')"><div class="check"></div>Too early to say</div>
-        </div>
-      </div>
-    </div>`;
+  if (service==='physio') {
+    html += '<div class="subsection"><div class="subsection-title">Physiotherapy Session</div>'
+      +'<div class="field"><label class="field-label">Did the therapist begin with a physical assessment? <span style="color:var(--red)">*</span></label><div class="options-row" id="f_assessment"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_assessment\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_assessment\',\'radio\')"><div class="check"></div>No</div></div><div class="field-error" id="err_assessment">Please answer this question</div></div>'
+      +'<div class="field"><label class="field-label">Were exercises explained before being performed?</label><div class="options-row" id="f_techniques_explained"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_techniques_explained\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_techniques_explained\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'<div class="field"><label class="field-label">Did the therapist adjust intensity based on your feedback?</label><div class="options-row" id="f_adaptive"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_adaptive\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_adaptive\',\'radio\')"><div class="check"></div>No</div><div class="option-btn" data-val="na" onclick="selectOption(this,\'f_adaptive\',\'radio\')"><div class="check"></div>N/A</div></div></div>'
+      +'<div class="field"><label class="field-label">Were home exercises demonstrated clearly?</label><div class="options-row" id="f_home_exercises"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_home_exercises\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_home_exercises\',\'radio\')"><div class="check"></div>No</div></div></div>'
+      +'<div class="field"><label class="field-label">Have you noticed any improvement since the session?</label><div class="options-row" id="f_improvement"><div class="option-btn" data-val="yes" onclick="selectOption(this,\'f_improvement\',\'radio\')"><div class="check"></div>Yes</div><div class="option-btn" data-val="no" onclick="selectOption(this,\'f_improvement\',\'radio\')"><div class="check"></div>No</div><div class="option-btn" data-val="too_early" onclick="selectOption(this,\'f_improvement\',\'radio\')"><div class="check"></div>Too early to say</div></div></div>'
+      +'</div>';
   }
 
   document.getElementById('sec2body').innerHTML = html;
-
-  // Build scales after innerHTML is set (FIX B3)
-  buildScale('f_booking_ease', 5);
-  buildScale('f_pricing_clarity', 5);
+  buildScale('f_booking_ease',5);
+  buildScale('f_pricing_clarity',5);
 }
 
-// ═══════════════════════════════════════════════════
-// SECTION 3 SETUP — issues + TAT visibility (FIX B4, B5)
-// ═══════════════════════════════════════════════════
 function setupSec3(service) {
-  // Build issues list for this service
-  const issuesWrap = document.getElementById('f_issues');
-  const issuesList = SERVICE_ISSUES[service] || SERVICE_ISSUES.pathology;
-  issuesWrap.innerHTML = issuesList.map(i =>
-    `<div class="option-btn checkbox" data-val="${i.val}" onclick="selectOption(this,'f_issues','checkbox'); checkPhotoPrompt()">`+
-    `<div class="check"></div>${i.label}</div>`
-  ).join('');
-
-  // Show/hide TAT and report quality for relevant services
-  const hasReport = REPORT_SERVICES.includes(service);
-  document.getElementById('f_tat_wrap').style.display = hasReport ? 'block' : 'none';
-  document.getElementById('f_report_quality_wrap').style.display = hasReport ? 'block' : 'none';
-
-  // Build scales
-  buildScale('f_comfort', 5);
-  buildScale('f_quality', 5);
-  if (hasReport) buildScale('f_report_quality', 5);
+  var issuesWrap = document.getElementById('f_issues');
+  var issuesList = SERVICE_ISSUES[service] || SERVICE_ISSUES.pathology;
+  var iHtml = '';
+  for (var i=0;i<issuesList.length;i++) {
+    iHtml += '<div class="option-btn checkbox" data-val="'+issuesList[i].val+'" onclick="selectOption(this,\'f_issues\',\'checkbox\');checkPhotoPrompt()"><div class="check"></div>'+issuesList[i].label+'</div>';
+  }
+  issuesWrap.innerHTML = iHtml;
+  var hasReport = REPORT_SERVICES.indexOf(service)>-1;
+  document.getElementById('f_tat_wrap').style.display = hasReport?'block':'none';
+  document.getElementById('f_report_quality_wrap').style.display = hasReport?'block':'none';
+  buildScale('f_comfort',5);
+  buildScale('f_quality',5);
+  if (hasReport) buildScale('f_report_quality',5);
 }
 
 function checkPhotoPrompt() {
-  const issues = document.getElementById('f_issues');
-  const hasIssue = Array.from(issues.querySelectorAll('.selected')).some(b => b.dataset.val !== 'no_issues');
-  document.getElementById('f_issue_photo_wrap').style.display = hasIssue ? 'block' : 'none';
+  var issues = document.getElementById('f_issues');
+  var selected = issues.querySelectorAll('.selected');
+  var hasIssue = false;
+  for (var i=0;i<selected.length;i++) { if (selected[i].getAttribute('data-val')!=='no_issues') { hasIssue=true; break; } }
+  document.getElementById('f_issue_photo_wrap').style.display = hasIssue?'block':'none';
 }
 
-// ═══════════════════════════════════════════════════
-// SECTION 5 — competitor fields visibility (FIX V5, M3)
-// ═══════════════════════════════════════════════════
 function setupSec5() {
-  const isCompetitor = getFieldVal('f_svctype') === 'competitor';
-  document.getElementById('f_comp_better_wrap').style.display = isCompetitor ? 'block' : 'none';
-  document.getElementById('f_1mg_better_wrap').style.display = isCompetitor ? 'block' : 'none';
-  document.getElementById('f_price_compare_wrap').style.display = isCompetitor ? 'block' : 'none';
-  const btn = document.querySelector('#sec5 .btn-next');
+  var isComp = getFieldVal('f_svctype')==='competitor';
+  document.getElementById('f_comp_better_wrap').style.display = isComp?'block':'none';
+  document.getElementById('f_1mg_better_wrap').style.display = isComp?'block':'none';
+  document.getElementById('f_price_compare_wrap').style.display = isComp?'block':'none';
+  var btn = document.getElementById('sec5NextBtn');
   if (btn) {
-    btn.innerHTML = isCompetitor ? 'Next →<div class="spinner"></div>' : 'Submit Feedback ✓<div class="spinner"></div>';
-    btn.classList.toggle('btn-submit', !isCompetitor);
+    btn.innerHTML = isComp ? 'Next &rarr;<div class="spinner"></div>' : 'Submit Feedback &#10003;<div class="spinner"></div>';
+    if (!isComp) btn.classList.add('btn-submit'); else btn.classList.remove('btn-submit');
+    btn.onclick = isComp ? function(){goNext();} : function(){submitForm();};
   }
   buildNPS();
 }
 
-// ═══════════════════════════════════════════════════
-// SECTION 6 BUILDER (FIX B6: removed duplicate competitor name)
-// ═══════════════════════════════════════════════════
+function setupSec4() { buildScale('f_support_rating',5); }
+
 function buildSec6() {
-  const isCompetitor = getFieldVal('f_svctype') === 'competitor';
-  const body = document.getElementById('sec6body');
-  if (!isCompetitor) {
-    body.innerHTML = `
-      <div class="notice info">
-        <span>✅</span>
-        <span>This section is not applicable for TATA 1MG service experiences. You can proceed to submit your feedback.</span>
-      </div>`;
+  var isComp = getFieldVal('f_svctype')==='competitor';
+  var body = document.getElementById('sec6body');
+  if (!isComp) {
+    body.innerHTML = '<div class="notice info"><span>✅</span><span>This section is not applicable for TATA 1MG service experiences. You can proceed to submit.</span></div>';
   } else {
-    const compName = (document.getElementById('f_competitor_name') || {}).value || '';
-    body.innerHTML = `
-      <div class="field">
-        <label class="field-label">Service availed with ${compName || 'competitor'} <span class="req">*</span></label>
-        <input type="text" id="f_comp_service" placeholder="e.g. Home Blood Test">
-        <div class="field-error" id="err_comp_service">Please enter the service name</div>
-      </div>
-      <div class="field">
-        <label class="field-label">Amount spent (₹) <span class="req">*</span></label>
-        <input type="text" id="f_comp_amount" placeholder="e.g. 850">
-        <div class="field-error" id="err_comp_amount">Please enter the amount</div>
-      </div>
-      <div class="field">
-        <label class="field-label">Upload Invoice / Receipt <span class="req">*</span></label>
-        <div class="field-hint">Accepted: PDF, JPG, PNG · Max 10MB</div>
-        <input type="file" id="f_invoice_file" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileUpload(this)">
-        <div class="file-upload-area" onclick="document.getElementById('f_invoice_file').click()">
-          <div class="upload-icon">📎</div>
-          <strong>Click to attach invoice</strong>
-          <p>PDF, JPG or PNG · Max 10MB</p>
-        </div>
-        <div class="file-preview" id="filePreview">
-          <span>📄</span><span id="filePreviewName"></span>
-          <span class="remove-file" onclick="removeFile()">✕</span>
-        </div>
-        <div class="field-error" id="err_invoice">Please attach the invoice</div>
-      </div>
-      <div class="field">
-        <label class="field-label">Any reimbursement questions or notes?</label>
-        <div class="voice-field">
-          <textarea id="f_reimb_notes" placeholder="e.g. Invoice is in Hindi, amount is ₹850 for blood test..."></textarea>
-          <button class="voice-btn" onclick="toggleVoice('f_reimb_notes',this)" title="Speak your answer">🎙</button>
-        </div>
-        <div class="voice-status" id="vs_f_reimb_notes"></div>
-      </div>`;
+    var compName = getVal('f_competitor_name') || 'competitor';
+    body.innerHTML = '<div class="field"><label class="field-label">Service availed with '+compName+' <span style="color:var(--red)">*</span></label><input type="text" id="f_comp_service" placeholder="e.g. Home Blood Test"><div class="field-error" id="err_comp_service">Please enter the service name</div></div>'
+      +'<div class="field"><label class="field-label">Amount spent (Rs.) <span style="color:var(--red)">*</span></label><input type="text" id="f_comp_amount" placeholder="e.g. 850"><div class="field-error" id="err_comp_amount">Please enter the amount</div></div>'
+      +'<div class="field"><label class="field-label">Upload Invoice / Receipt <span style="color:var(--red)">*</span></label><div class="field-hint">Accepted: PDF, JPG, PNG</div><input type="file" id="f_invoice_file" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileUpload(this)"><div class="file-upload-area" onclick="document.getElementById(\'f_invoice_file\').click()"><div class="upload-icon">📎</div><strong>Click to attach invoice</strong><p>PDF, JPG or PNG</p></div><div class="file-preview" id="filePreview"><span>📄</span><span id="filePreviewName"></span><span class="remove-file" onclick="removeFile()">✕</span></div><div class="field-error" id="err_invoice">Please attach the invoice</div></div>'
+      +'<div class="field"><label class="field-label">Any reimbursement notes?</label><div class="voice-field"><textarea id="f_reimb_notes" placeholder="e.g. Invoice is in Hindi, amount is Rs.850..."></textarea><button class="voice-btn" onclick="toggleVoice(\'f_reimb_notes\',this)">🎙</button></div><div class="voice-status" id="vs_f_reimb_notes"></div></div>';
   }
 }
 
-// ═══════════════════════════════════════════════════
-// SCALE & NPS BUILDERS
-// ═══════════════════════════════════════════════════
 function buildScale(id, max) {
-  const wrap = document.getElementById(id);
+  var wrap = document.getElementById(id);
   if (!wrap) return;
   wrap.innerHTML = '';
-  for (let i = 1; i <= max; i++) {
-    const btn = document.createElement('button');
+  for (var i=1;i<=max;i++) {
+    var btn = document.createElement('button');
     btn.className = 'scale-btn';
     btn.textContent = i;
-    btn.dataset.val = i;
+    btn.setAttribute('data-val', i);
     btn.type = 'button';
-    btn.onclick = () => {
-      wrap.querySelectorAll('.scale-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-    };
+    (function(b,w){
+      b.onclick = function() {
+        var btns = w.querySelectorAll('.scale-btn');
+        for (var j=0;j<btns.length;j++) btns[j].classList.remove('selected');
+        b.classList.add('selected');
+      };
+    })(btn, wrap);
     wrap.appendChild(btn);
   }
 }
 
 function buildNPS() {
-  const wrap = document.getElementById('f_nps');
+  var wrap = document.getElementById('f_nps');
   if (!wrap) return;
   wrap.innerHTML = '';
-  for (let i = 0; i <= 10; i++) {
-    const btn = document.createElement('button');
+  for (var i=0;i<=10;i++) {
+    var btn = document.createElement('button');
     btn.className = 'nps-btn';
     btn.textContent = i;
-    btn.dataset.val = i;
+    btn.setAttribute('data-val', i);
     btn.type = 'button';
-    btn.onclick = () => {
-      wrap.querySelectorAll('.nps-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-    };
+    (function(b,w){
+      b.onclick = function() {
+        var btns = w.querySelectorAll('.nps-btn');
+        for (var j=0;j<btns.length;j++) btns[j].classList.remove('selected');
+        b.classList.add('selected');
+      };
+    })(btn, wrap);
     wrap.appendChild(btn);
   }
 }
 
-// Also build support rating scale when sec4 is shown
-function setupSec4() {
-  buildScale('f_support_rating', 5);
-}
-
-// ═══════════════════════════════════════════════════
-// OPTION SELECTION
-// ═══════════════════════════════════════════════════
 function selectOption(el, groupId, type) {
-  const group = document.getElementById(groupId);
+  var group = document.getElementById(groupId);
   if (!group) return;
-  if (type === 'radio') {
-    group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+  if (type==='radio') {
+    var btns = group.querySelectorAll('.option-btn');
+    for (var i=0;i<btns.length;i++) btns[i].classList.remove('selected');
     el.classList.add('selected');
   } else {
     el.classList.toggle('selected');
@@ -1315,422 +819,356 @@ function selectOption(el, groupId, type) {
 }
 
 function selectService(el) {
-  selectOption(el, 'f_service', 'radio');
-  selectedService = el.dataset.val;
+  selectOption(el,'f_service','radio');
+  selectedService = el.getAttribute('data-val');
 }
 
 function toggleCompetitorField(show) {
-  document.getElementById('f_competitor_name_wrap').style.display = show ? 'block' : 'none';
+  document.getElementById('f_competitor_name_wrap').style.display = show?'block':'none';
 }
 
 function toggleSupportFields(show) {
-  document.getElementById('support_detail_fields').style.display = show ? 'block' : 'none';
+  document.getElementById('support_detail_fields').style.display = show?'block':'none';
 }
 
-// ═══════════════════════════════════════════════════
-// NAVIGATION (FIX B2, B8: scales built per section visit)
-// ═══════════════════════════════════════════════════
 function showSection(n) {
-  document.querySelectorAll('.section-card').forEach(c => c.classList.remove('active'));
-  const sec = document.getElementById('sec' + n);
-  if (sec) {
-    sec.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  var cards = document.querySelectorAll('.section-card');
+  for (var i=0;i<cards.length;i++) cards[i].classList.remove('active');
+  var sec = document.getElementById('sec'+n);
+  if (sec) { sec.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
   updateProgress(n);
 }
 
 function updateProgress(n) {
-  const pct = Math.round(((n - 1) / totalSections) * 100);
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('progressLabel').textContent = `Section ${n} of ${totalSections}`;
-  const pips = document.querySelectorAll('.step-pip');
-  pips.forEach((pip, i) => {
-    pip.classList.remove('active', 'done');
-    if (i + 1 < n) pip.classList.add('done');
-    else if (i + 1 === n) pip.classList.add('active');
-  });
+  var pct = Math.round(((n-1)/totalSections)*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressLabel').textContent = 'Section '+n+' of '+totalSections;
+  var pips = document.querySelectorAll('.step-pip');
+  for (var i=0;i<pips.length;i++) {
+    pips[i].classList.remove('active','done');
+    if (i+1<n) pips[i].classList.add('done');
+    else if (i+1===n) pips[i].classList.add('active');
+  }
 }
 
 function goNext() {
   if (!validateCurrentSection()) return;
-
-  if (currentSection === 1) {
-    document.getElementById('heroBlock').style.display = 'none';
-    buildSec2(selectedService);         // build service questions
-  }
-  if (currentSection === 2) {
-    setupSec3(selectedService);         // FIX B2: build sec3 scales when entering sec3
-  }
-  if (currentSection === 3) {
-    setupSec4();                        // FIX B2: build sec4 scales when entering sec4
-  }
-  if (currentSection === 4) {
-    setupSec5();                        // build sec5 (NPS + competitor fields)
-  }
-  if (currentSection === 5) {
-    const isComp = getFieldVal('f_svctype') === 'competitor';
+  if (currentSection===1) { document.getElementById('heroBlock').style.display='none'; buildSec2(selectedService); }
+  if (currentSection===2) { setupSec3(selectedService); }
+  if (currentSection===3) { setupSec4(); }
+  if (currentSection===4) { setupSec5(); }
+  if (currentSection===5) {
+    var isComp = getFieldVal('f_svctype')==='competitor';
     if (!isComp) { submitForm(); return; }
     buildSec6();
   }
-
   currentSection++;
   showSection(currentSection);
 }
 
 function goBack() {
   currentSection--;
-  // FIX B8: rebuild sec2 on re-entry so stale content is refreshed
-  if (currentSection === 2) {
-    buildSec2(selectedService);
-  }
+  if (currentSection===2) buildSec2(selectedService);
   showSection(currentSection);
 }
 
-// ═══════════════════════════════════════════════════
-// VALIDATION — per section (FIX B7)
-// ═══════════════════════════════════════════════════
 function clearErrors() {
-  document.querySelectorAll('.field-error.show').forEach(e => e.classList.remove('show'));
-  document.querySelectorAll('.input-error').forEach(e => e.classList.remove('input-error'));
+  var errs = document.querySelectorAll('.field-error.show');
+  for (var i=0;i<errs.length;i++) errs[i].classList.remove('show');
+  var inps = document.querySelectorAll('.input-error');
+  for (var i=0;i<inps.length;i++) inps[i].classList.remove('input-error');
 }
 
 function showError(id, inputId) {
-  const err = document.getElementById(id);
+  var err = document.getElementById(id);
   if (err) err.classList.add('show');
-  if (inputId) {
-    const inp = document.getElementById(inputId);
-    if (inp) inp.classList.add('input-error');
-  }
+  if (inputId) { var inp=document.getElementById(inputId); if (inp) inp.classList.add('input-error'); }
 }
 
 function validateCurrentSection() {
   clearErrors();
-  let valid = true;
-
-  if (currentSection === 1) {
-    if (!document.getElementById('f_name').value.trim()) { showError('err_name','f_name'); valid = false; }
-    if (!document.getElementById('f_dept').value) { showError('err_dept','f_dept'); valid = false; }
-    if (!document.getElementById('f_city').value.trim()) { showError('err_city','f_city'); valid = false; }
-    if (!getFieldVal('f_age')) { showError('err_age'); valid = false; }
-    if (!document.getElementById('f_date').value) { showError('err_date','f_date'); valid = false; }
-    if (!document.getElementById('f_test_name').value.trim()) { showError('err_test_name','f_test_name'); valid = false; }
-    if (!getFieldVal('f_svctype')) { showError('err_svctype'); valid = false; }
-    if (!selectedService) { showError('err_service'); valid = false; }
-    if (getFieldVal('f_svctype') === 'competitor' && !document.getElementById('f_competitor_name').value.trim()) {
-      document.getElementById('f_competitor_name').classList.add('input-error'); valid = false;
+  var valid = true;
+  if (currentSection===1) {
+    if (!getVal('f_name').trim()) { showError('err_name','f_name'); valid=false; }
+    if (!getVal('f_dept')) { showError('err_dept','f_dept'); valid=false; }
+    if (!getVal('f_city').trim()) { showError('err_city','f_city'); valid=false; }
+    if (!getFieldVal('f_age')) { showError('err_age'); valid=false; }
+    if (!getVal('f_date')) { showError('err_date','f_date'); valid=false; }
+    if (!getFieldVal('f_svctype')) { showError('err_svctype'); valid=false; }
+    if (!getVal('f_test_name').trim()) { showError('err_test_name','f_test_name'); valid=false; }
+    if (!selectedService) { showError('err_service'); valid=false; }
+    if (getFieldVal('f_svctype')==='competitor' && !getVal('f_competitor_name').trim()) { var el=document.getElementById('f_competitor_name'); if(el) el.classList.add('input-error'); valid=false; }
+  }
+  if (currentSection===2) {
+    if (!getScaleVal('f_booking_ease')) { showError('err_booking_ease'); valid=false; }
+    if (!getFieldVal('f_slots')) { showError('err_slots'); valid=false; }
+    if (!getScaleVal('f_pricing_clarity')) { showError('err_pricing_clarity'); valid=false; }
+    if (!getFieldVal('f_precomms')) { showError('err_precomms'); valid=false; }
+    if (!getFieldVal('f_introduction')) { showError('err_introduction'); valid=false; }
+    if (!getFieldVal('f_ppe')) { showError('err_ppe'); valid=false; }
+    if (selectedService==='pathology' && !getFieldVal('f_sealed')) { showError('err_sealed'); valid=false; }
+    if (selectedService==='vaccination' && !getFieldVal('f_allergy_check')) { showError('err_allergy_check'); valid=false; }
+    if (selectedService==='nursing' && !getFieldVal('f_materials')) { showError('err_materials'); valid=false; }
+    if (selectedService==='xray' && !getFieldVal('f_radiation_safety')) { showError('err_radiation_safety'); valid=false; }
+    if (selectedService==='physio' && !getFieldVal('f_assessment')) { showError('err_assessment'); valid=false; }
+    if (selectedService==='ppmc' && !getFieldVal('f_ppmc_all_done')) { showError('err_ppmc_all_done'); valid=false; }
+  }
+  if (currentSection===3) {
+    if (!getFieldVal('f_arrival')) { showError('err_arrival'); valid=false; }
+    if (!getFieldVal('f_listened')) { showError('err_listened'); valid=false; }
+    if (!getScaleVal('f_comfort')) { showError('err_comfort'); valid=false; }
+    if (!getScaleVal('f_quality')) { showError('err_quality'); valid=false; }
+    if (REPORT_SERVICES.indexOf(selectedService)>-1) {
+      if (!getFieldVal('f_tat')) { showError('err_tat'); valid=false; }
+      if (!getScaleVal('f_report_quality')) { showError('err_report_quality'); valid=false; }
     }
   }
-
-  if (currentSection === 2) {
-    if (!getScaleVal('f_booking_ease')) { showError('err_booking_ease'); valid = false; }
-    if (!getFieldVal('f_slots')) { showError('err_slots'); valid = false; }
-    if (!getScaleVal('f_pricing_clarity')) { showError('err_pricing_clarity'); valid = false; }
-    if (!getFieldVal('f_precomms')) { showError('err_precomms'); valid = false; }
-    if (!getFieldVal('f_introduction')) { showError('err_introduction'); valid = false; }
-    if (!getFieldVal('f_ppe')) { showError('err_ppe'); valid = false; }
-    // Service-specific required fields
-    if (selectedService === 'pathology' && !getFieldVal('f_sealed')) { showError('err_sealed'); valid = false; }
-    if (selectedService === 'vaccination' && !getFieldVal('f_allergy_check')) { showError('err_allergy_check'); valid = false; }
-    if (selectedService === 'nursing' && !getFieldVal('f_materials')) { showError('err_materials'); valid = false; }
-    if (selectedService === 'xray' && !getFieldVal('f_radiation_safety')) { showError('err_radiation_safety'); valid = false; }
-    if (selectedService === 'physio' && !getFieldVal('f_assessment')) { showError('err_assessment'); valid = false; }
-    if (selectedService === 'ppmc' && !getFieldVal('f_ppmc_all_done')) { showError('err_ppmc_all_done'); valid = false; }
+  if (currentSection===4) {
+    if (!getFieldVal('f_contacted_support')) { showError('err_contacted_support'); valid=false; }
   }
-
-  if (currentSection === 3) {
-    if (!getFieldVal('f_arrival')) { showError('err_arrival'); valid = false; }
-    if (!getFieldVal('f_listened')) { showError('err_listened'); valid = false; }
-    if (!getScaleVal('f_comfort')) { showError('err_comfort'); valid = false; }
-    if (!getScaleVal('f_quality')) { showError('err_quality'); valid = false; }
-    if (REPORT_SERVICES.includes(selectedService)) {
-      if (!getFieldVal('f_tat')) { showError('err_tat'); valid = false; }
-      if (!getScaleVal('f_report_quality')) { showError('err_report_quality'); valid = false; }
-    }
+  if (currentSection===5) {
+    if (!getVal('f_recommendations').trim()) { showError('err_recommendations','f_recommendations'); valid=false; }
+    if (!getFieldVal('f_reuse')) { showError('err_reuse'); valid=false; }
+    if (getScaleVal('f_nps')==='') { showError('err_nps'); valid=false; }
   }
-
-  if (currentSection === 4) {
-    if (!getFieldVal('f_contacted_support')) { showError('err_contacted_support'); valid = false; }
+  if (currentSection===6 && getFieldVal('f_svctype')==='competitor') {
+    var cs=document.getElementById('f_comp_service'); if (!cs||!cs.value.trim()) { showError('err_comp_service','f_comp_service'); valid=false; }
+    var ca=document.getElementById('f_comp_amount'); if (!ca||!ca.value.trim()) { showError('err_comp_amount','f_comp_amount'); valid=false; }
+    var cf=document.getElementById('f_invoice_file'); if (!cf||!cf.files||!cf.files.length) { showError('err_invoice'); valid=false; }
   }
-
-  if (currentSection === 5) {
-    if (!document.getElementById('f_recommendations').value.trim()) { showError('err_recommendations','f_recommendations'); valid = false; }
-    if (!getFieldVal('f_reuse')) { showError('err_reuse'); valid = false; }
-    if (getScaleVal('f_nps') === '') { showError('err_nps'); valid = false; }
+  if (!valid) {
+    var firstErr = document.querySelector('.field-error.show');
+    if (firstErr) window.scrollTo({top: firstErr.getBoundingClientRect().top+window.scrollY-100, behavior:'smooth'});
   }
-
-  if (currentSection === 6 && getFieldVal('f_svctype') === 'competitor') {
-    if (!document.getElementById('f_comp_service')?.value.trim()) { showError('err_comp_service','f_comp_service'); valid = false; }
-    if (!document.getElementById('f_comp_amount')?.value.trim()) { showError('err_comp_amount','f_comp_amount'); valid = false; }
-    if (!document.getElementById('f_invoice_file')?.files?.length) { showError('err_invoice'); valid = false; }
-  }
-
-  if (!valid) window.scrollTo({ top: document.querySelector('.field-error.show')?.getBoundingClientRect().top + window.scrollY - 100 || 0, behavior: 'smooth' });
   return valid;
 }
 
 function getFieldVal(groupId) {
-  const group = document.getElementById(groupId);
+  var group = document.getElementById(groupId);
   if (!group) return null;
-  const sel = group.querySelector('.option-btn.selected');
-  return sel ? sel.dataset.val : null;
+  var sel = group.querySelector('.option-btn.selected');
+  return sel ? sel.getAttribute('data-val') : null;
 }
 
 function getScaleVal(id) {
-  const wrap = document.getElementById(id);
+  var wrap = document.getElementById(id);
   if (!wrap) return '';
-  const sel = wrap.querySelector('.selected');
-  return sel ? sel.dataset.val : '';
+  var sel = wrap.querySelector('.selected');
+  return sel ? sel.getAttribute('data-val') : '';
 }
 
 function getCheckboxVals(id) {
-  const wrap = document.getElementById(id);
+  var wrap = document.getElementById(id);
   if (!wrap) return '';
-  return Array.from(wrap.querySelectorAll('.option-btn.selected')).map(b => b.dataset.val).join(', ');
+  var selected = wrap.querySelectorAll('.option-btn.selected');
+  var vals = [];
+  for (var i=0;i<selected.length;i++) vals.push(selected[i].getAttribute('data-val'));
+  return vals.join(', ');
 }
 
-// ═══════════════════════════════════════════════════
-// FILE UPLOAD
-// ═══════════════════════════════════════════════════
 function handleFileUpload(input) {
-  const file = input.files[0];
+  var file = input.files[0];
   if (!file) return;
-  const preview = document.getElementById('filePreview');
-  const name = document.getElementById('filePreviewName');
-  if (preview && name) { name.textContent = `${file.name} (${(file.size/1024).toFixed(0)} KB)`; preview.classList.add('show'); }
+  var preview = document.getElementById('filePreview');
+  var name = document.getElementById('filePreviewName');
+  if (preview && name) { name.textContent = file.name+' ('+(file.size/1024).toFixed(0)+' KB)'; preview.classList.add('show'); }
 }
 function removeFile() {
-  document.getElementById('f_invoice_file').value = '';
-  document.getElementById('filePreview')?.classList.remove('show');
+  var fi = document.getElementById('f_invoice_file');
+  if (fi) fi.value = '';
+  var fp = document.getElementById('filePreview');
+  if (fp) fp.classList.remove('show');
 }
 function handlePhotoUpload(input) {
-  const file = input.files[0];
+  var file = input.files[0];
   if (!file) return;
-  const preview = document.getElementById('photoPreview');
-  const name = document.getElementById('photoPreviewName');
-  if (preview && name) { name.textContent = `${file.name} (${(file.size/1024).toFixed(0)} KB)`; preview.classList.add('show'); }
+  var preview = document.getElementById('photoPreview');
+  var name = document.getElementById('photoPreviewName');
+  if (preview && name) { name.textContent = file.name+' ('+(file.size/1024).toFixed(0)+' KB)'; preview.classList.add('show'); }
 }
 function removePhoto() {
-  document.getElementById('f_issue_photo').value = '';
-  document.getElementById('photoPreview')?.classList.remove('show');
+  var fi = document.getElementById('f_issue_photo');
+  if (fi) fi.value = '';
+  var fp = document.getElementById('photoPreview');
+  if (fp) fp.classList.remove('show');
 }
 
-// ═══════════════════════════════════════════════════
-// WHISPER VOICE (FIX B1: language-aware, append mode)
-// ═══════════════════════════════════════════════════
 async function toggleVoice(fieldId, btn) {
-  if (!navigator.mediaDevices?.getUserMedia) {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
     alert('Voice input is not supported in this browser. Please use Chrome or Edge.');
     return;
   }
-  if (mediaRecorder && mediaRecorder.state === 'recording') {
+  if (mediaRecorder && mediaRecorder.state==='recording') {
     mediaRecorder.stop();
     btn.classList.remove('recording');
     btn.textContent = '🎙';
-    const s = document.getElementById('vs_' + fieldId);
-    if (s) { s.textContent = '⏳ Transcribing...'; s.classList.add('show'); }
+    var s = document.getElementById('vs_'+fieldId);
+    if (s) { s.textContent = 'Transcribing...'; s.classList.add('show'); }
     return;
   }
   try {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    var stream = await navigator.mediaDevices.getUserMedia({audio:true});
     audioChunks = [];
     mediaRecorder = new MediaRecorder(stream);
-    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-    mediaRecorder.onstop = async () => {
-      stream.getTracks().forEach(t => t.stop());
-      const blob = new Blob(audioChunks, { type: 'audio/webm' });
+    mediaRecorder.ondataavailable = function(e) { audioChunks.push(e.data); };
+    mediaRecorder.onstop = async function() {
+      stream.getTracks().forEach(function(t){t.stop();});
+      var blob = new Blob(audioChunks, {type:'audio/webm'});
       await transcribeAudio(blob, fieldId);
     };
     mediaRecorder.start();
     btn.classList.add('recording');
     btn.textContent = '⏹';
-    const s = document.getElementById('vs_' + fieldId);
-    if (s) { s.textContent = '🔴 Recording... tap to stop'; s.classList.add('show'); }
-  } catch (err) {
+    var s = document.getElementById('vs_'+fieldId);
+    if (s) { s.textContent = 'Recording... tap to stop'; s.classList.add('show'); }
+  } catch(err) {
     alert('Microphone access denied. Please allow microphone access and try again.');
   }
 }
 
 async function transcribeAudio(blob, fieldId) {
-  const statusEl = document.getElementById('vs_' + fieldId);
-  const textarea = document.getElementById(fieldId);
-
-  // ── REPLACE WITH YOUR BACKEND PROXY URL OR DIRECT OPENAI KEY ──
-  const WHISPER_ENDPOINT = 'https://proxy-kappa-five-95.vercel.app/api/transcribe';
-
+  var statusEl = document.getElementById('vs_'+fieldId);
+  var textarea = document.getElementById(fieldId);
+  var WHISPER_ENDPOINT = 'https://proxy-kappa-five-95.vercel.app/api/transcribe';
   try {
-    const fd = new FormData();
+    var fd = new FormData();
     fd.append('file', blob, 'audio.webm');
     if (whisperLang) fd.append('language', whisperLang);
-
-    const res = await fetch(WHISPER_ENDPOINT, {
-      method: 'POST',
-      body: fd
-    });
+    var res = await fetch(WHISPER_ENDPOINT, {method:'POST', body:fd});
     if (!res.ok) throw new Error('Transcription failed');
-    const data = await res.json();
-    const text = data.text || '';
+    var data = await res.json();
+    var text = data.text || '';
     if (textarea) {
-      // Append mode — don't overwrite existing text
-      const existing = textarea.value.trim();
-      textarea.value = existing ? existing + ' ' + text : text;
+      var existing = textarea.value.trim();
+      textarea.value = existing ? existing+' '+text : text;
     }
-    if (statusEl) { statusEl.textContent = '✅ Transcribed'; setTimeout(() => statusEl.classList.remove('show'), 3000); }
-  } catch {
-    // Fallback to browser speech API
+    if (statusEl) { statusEl.textContent = 'Transcribed'; setTimeout(function(){statusEl.classList.remove('show');},3000); }
+  } catch(e) {
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-      if (statusEl) { statusEl.textContent = '⚠️ Using browser fallback...'; }
+      if (statusEl) statusEl.textContent = 'Using browser fallback...';
       useBrowserSpeech(fieldId, statusEl);
     } else {
-      if (statusEl) { statusEl.textContent = '❌ Transcription unavailable — please type.'; setTimeout(() => statusEl.classList.remove('show'), 4000); }
+      if (statusEl) { statusEl.textContent = 'Transcription unavailable — please type.'; setTimeout(function(){statusEl.classList.remove('show');},4000); }
     }
   }
 }
 
 function useBrowserSpeech(fieldId, statusEl) {
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const recognition = new SR();
-  recognition.lang = whisperLang === 'hi' ? 'hi-IN' : 'en-IN';
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var recognition = new SR();
+  recognition.lang = whisperLang==='hi' ? 'hi-IN' : 'en-IN';
   recognition.interimResults = false;
-  recognition.onresult = e => {
-    const text = e.results[0][0].transcript;
-    const ta = document.getElementById(fieldId);
-    if (ta) { const ex = ta.value.trim(); ta.value = ex ? ex + ' ' + text : text; }
-    if (statusEl) { statusEl.textContent = '✅ Done'; setTimeout(() => statusEl.classList.remove('show'), 2000); }
+  recognition.onresult = function(e) {
+    var text = e.results[0][0].transcript;
+    var ta = document.getElementById(fieldId);
+    if (ta) { var ex=ta.value.trim(); ta.value = ex ? ex+' '+text : text; }
+    if (statusEl) { statusEl.textContent = 'Done'; setTimeout(function(){statusEl.classList.remove('show');},2000); }
   };
-  recognition.onerror = () => {
-    if (statusEl) { statusEl.textContent = '❌ Failed. Please type your answer.'; setTimeout(() => statusEl.classList.remove('show'), 3000); }
+  recognition.onerror = function() {
+    if (statusEl) { statusEl.textContent = 'Failed. Please type your answer.'; setTimeout(function(){statusEl.classList.remove('show');},3000); }
   };
   recognition.start();
 }
 
-// ═══════════════════════════════════════════════════
-// SUBMIT (FIX B6: all sec6 fields included)
-// ═══════════════════════════════════════════════════
 async function submitForm() {
   if (!validateCurrentSection()) return;
+  var btn = document.querySelector('.btn-submit');
+  if (btn) btn.classList.add('loading');
 
-  const btn = document.querySelector('.btn-submit');
-  btn.classList.add('loading');
-
-  const payload = {
+  var payload = {
     timestamp: new Date().toISOString(),
-    test_name: document.getElementById('f_test_name')?.value || '',
-    // Section 1
-    name: document.getElementById('f_name')?.value || '', document.getElementById('f_name')?.value || '',
-    department: document.getElementById('f_dept')?.value || '',
-    city: document.getElementById('f_city')?.value || '',
-    age_bracket: getFieldVal('f_age') || '',
-    gender: getFieldVal('f_gender') || '',
-    date_of_service: document.getElementById('f_date')?.value || '',
-    service_type: getFieldVal('f_svctype') || '',
-    service: selectedService || '',
-    competitor_name: document.getElementById('f_competitor_name')?.value || '',
-    // Section 2
+    test_name: getVal('f_test_name'),
+    name: getVal('f_name'),
+    department: getVal('f_dept'),
+    city: getVal('f_city'),
+    age_bracket: getFieldVal('f_age')||'',
+    gender: getFieldVal('f_gender')||'',
+    date_of_service: getVal('f_date'),
+    service_type: getFieldVal('f_svctype')||'',
+    service: selectedService||'',
+    competitor_name: getVal('f_competitor_name'),
     booking_ease: getScaleVal('f_booking_ease'),
-    slots_available: getFieldVal('f_slots') || '',
+    slots_available: getFieldVal('f_slots')||'',
     pricing_clarity: getScaleVal('f_pricing_clarity'),
-    pre_comms_adequate: getFieldVal('f_precomms') || '',
-    pro_intro: getFieldVal('f_introduction') || '',
-    ppe_worn: getFieldVal('f_ppe') || '',
-    comfort_effort: getFieldVal('f_comfort_effort') || '',
-    pro_notes: document.getElementById('f_pro_notes')?.value || '',
-    offers_notes: document.getElementById('f_offers_notes')?.value || '',
-    // Section 3
-    arrival: getFieldVal('f_arrival') || '',
-    listened: getFieldVal('f_listened') || '',
+    pre_comms_adequate: getFieldVal('f_precomms')||'',
+    pro_intro: getFieldVal('f_introduction')||'',
+    ppe_worn: getFieldVal('f_ppe')||'',
+    comfort_effort: getFieldVal('f_comfort_effort')||'',
+    pro_notes: getVal('f_pro_notes'),
+    offers_notes: getVal('f_offers_notes'),
+    arrival: getFieldVal('f_arrival')||'',
+    listened: getFieldVal('f_listened')||'',
     comfort_rating: getScaleVal('f_comfort'),
     quality_rating: getScaleVal('f_quality'),
     issues: getCheckboxVals('f_issues'),
-    tat: getFieldVal('f_tat') || '',
+    tat: getFieldVal('f_tat')||'',
     report_quality: getScaleVal('f_report_quality'),
-    quality_notes: document.getElementById('f_quality_notes')?.value || '',
-    // Section 4
-    contacted_support: getFieldVal('f_contacted_support') || '',
+    quality_notes: getVal('f_quality_notes'),
+    contacted_support: getFieldVal('f_contacted_support')||'',
     support_channels: getCheckboxVals('f_support_channel'),
     support_rating: getScaleVal('f_support_rating'),
-    issue_resolved: getFieldVal('f_issue_resolved') || '',
-    support_detail: document.getElementById('f_support_detail')?.value || '',
-    // Section 5
-    recommendations: document.getElementById('f_recommendations')?.value || '',
-    comp_did_better: document.getElementById('f_comp_better')?.value || '',
-    oner_did_better: document.getElementById('f_1mg_better')?.value || '',
-    price_comparison: getFieldVal('f_price_compare') || '',
-    delight: document.getElementById('f_delight')?.value || '',
-    frustration: document.getElementById('f_frustration')?.value || '',
-    reuse_intent: getFieldVal('f_reuse') || '',
+    issue_resolved: getFieldVal('f_issue_resolved')||'',
+    support_detail: getVal('f_support_detail'),
+    recommendations: getVal('f_recommendations'),
+    comp_did_better: getVal('f_comp_better'),
+    oner_did_better: getVal('f_1mg_better'),
+    price_comparison: getFieldVal('f_price_compare')||'',
+    delight: getVal('f_delight'),
+    frustration: getVal('f_frustration'),
+    reuse_intent: getFieldVal('f_reuse')||'',
     nps: getScaleVal('f_nps'),
-    anything_else: document.getElementById('f_anything_else')?.value || '',
-    // Section 6
-    comp_service: document.getElementById('f_comp_service')?.value || '',
-    comp_amount: document.getElementById('f_comp_amount')?.value || '',
-    reimb_notes: document.getElementById('f_reimb_notes')?.value || '',
-    // Pathology specific
-    sealed: getFieldVal('f_sealed') || '',
-    swab: getFieldVal('f_swab') || '',
-    bandage: getFieldVal('f_bandage') || '',
-    cleanup: getFieldVal('f_cleanup') || '',
-    // Nursing specific
-    materials: getFieldVal('f_materials') || '',
-    followup_care: getFieldVal('f_followup_care') || '',
-    // Vaccination specific
-    allergy_check: getFieldVal('f_allergy_check') || '',
-    cold_chain: getFieldVal('f_cold_chain') || '',
-    observation: getFieldVal('f_observation') || '',
-    vacc_instructions: getFieldVal('f_vacc_instructions') || '',
-    vacc_cert: getFieldVal('f_vacc_cert') || '',
-    // X-Ray specific
-    radiation_safety: getFieldVal('f_radiation_safety') || '',
-    image_quality: getFieldVal('f_image_quality') || '',
-    report_guidance: getFieldVal('f_report_guidance') || '',
-    // Physio specific
-    assessment: getFieldVal('f_assessment') || '',
-    techniques_explained: getFieldVal('f_techniques_explained') || '',
-    adaptive: getFieldVal('f_adaptive') || '',
-    home_exercises: getFieldVal('f_home_exercises') || '',
-    improvement: getFieldVal('f_improvement') || '',
-    // ECG specific
-    ecg_electrodes: getFieldVal('f_ecg_electrodes') || '',
-    ecg_skin_prep: getFieldVal('f_ecg_skin_prep') || '',
-    ecg_positioning: getFieldVal('f_ecg_positioning') || '',
-    ecg_trace_quality: getFieldVal('f_ecg_trace_quality') || '',
-    ecg_guidance: getFieldVal('f_ecg_guidance') || '',
-    // PPMC specific
-    ppmc_all_done: getFieldVal('f_ppmc_all_done') || '',
-    ppmc_coordination: getFieldVal('f_ppmc_coordination') || '',
-    ppmc_counselling: getFieldVal('f_ppmc_counselling') || '',
+    anything_else: getVal('f_anything_else'),
+    comp_service: getVal('f_comp_service'),
+    comp_amount: getVal('f_comp_amount'),
+    reimb_notes: getVal('f_reimb_notes'),
+    sealed: getFieldVal('f_sealed')||'',
+    swab: getFieldVal('f_swab')||'',
+    bandage: getFieldVal('f_bandage')||'',
+    cleanup: getFieldVal('f_cleanup')||'',
+    materials: getFieldVal('f_materials')||'',
+    followup_care: getFieldVal('f_followup_care')||'',
+    allergy_check: getFieldVal('f_allergy_check')||'',
+    cold_chain: getFieldVal('f_cold_chain')||'',
+    observation: getFieldVal('f_observation')||'',
+    vacc_instructions: getFieldVal('f_vacc_instructions')||'',
+    vacc_cert: getFieldVal('f_vacc_cert')||'',
+    radiation_safety: getFieldVal('f_radiation_safety')||'',
+    image_quality: getFieldVal('f_image_quality')||'',
+    report_guidance: getFieldVal('f_report_guidance')||'',
+    assessment: getFieldVal('f_assessment')||'',
+    techniques_explained: getFieldVal('f_techniques_explained')||'',
+    adaptive: getFieldVal('f_adaptive')||'',
+    home_exercises: getFieldVal('f_home_exercises')||'',
+    improvement: getFieldVal('f_improvement')||'',
+    ecg_electrodes: getFieldVal('f_ecg_electrodes')||'',
+    ecg_skin_prep: getFieldVal('f_ecg_skin_prep')||'',
+    ecg_positioning: getFieldVal('f_ecg_positioning')||'',
+    ecg_trace_quality: getFieldVal('f_ecg_trace_quality')||'',
+    ecg_guidance: getFieldVal('f_ecg_guidance')||'',
+    ppmc_all_done: getFieldVal('f_ppmc_all_done')||'',
+    ppmc_coordination: getFieldVal('f_ppmc_coordination')||'',
+    ppmc_counselling: getFieldVal('f_ppmc_counselling')||''
   };
 
-  // ── GOOGLE SHEET CONNECTION ──────────────────────────────────
-  // To connect:
-  // 1. Open your Google Sheet → Extensions → Apps Script
-  // 2. Paste ANUBHAV_AppScript.js → Save
-  // 3. Deploy → New Deployment → Web App
-  //    Execute as: Me | Access: Anyone within 1mg.com
-  // 4. Copy the Web App URL and paste it below
-  // ─────────────────────────────────────────────────────────────
-  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzOg8wtKaRc0OjVaSl9BntgeX4QXtIcBBGgelaxQJ6hKKTmaYVBYfxkxvKb16_0EYFqEw/exec';
-
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbzOg8wtKaRc0OjVaSl9BntgeX4QXtIcBBGgelaxQJ6hKKTmaYVBYfxkxvKb16_0EYFqEw/exec';
   try {
-    await fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-  } catch (e) { /* no-cors — data sent even if catch fires */ }
+    await fetch(SHEET_URL, {method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
+  } catch(e) {}
 
-  // Show success
-  document.getElementById('heroBlock').style.display = 'none';
-  document.querySelectorAll('.section-card').forEach(c => c.style.display = 'none');
+  var heroBlock = document.getElementById('heroBlock');
+  if (heroBlock) heroBlock.style.display = 'none';
+  var cards = document.querySelectorAll('.section-card');
+  for (var i=0;i<cards.length;i++) cards[i].style.display = 'none';
   document.getElementById('successScreen').classList.add('show');
   document.getElementById('progressFill').style.width = '100%';
-  document.getElementById('progressLabel').textContent = 'Submitted ✓';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('progressLabel').textContent = 'Submitted';
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ═══════════════════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
   updateProgress(1);
-  // Set max date to today for date of service
-  document.getElementById('f_date').max = new Date().toISOString().split('T')[0];
+  var dateEl = document.getElementById('f_date');
+  if (dateEl) dateEl.max = new Date().toISOString().split('T')[0];
 });
 </script>
 </body>
