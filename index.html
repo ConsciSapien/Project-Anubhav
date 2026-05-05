@@ -1075,6 +1075,36 @@ async function submitForm() {
   var btn = document.querySelector('.btn-submit');
   if (btn) btn.classList.add('loading');
 
+  // Upload files to Google Drive
+  var photoLink = '';
+  var invoiceLink = '';
+
+  var photoFile = document.getElementById('f_issue_photo');
+  if (photoFile && photoFile.files && photoFile.files[0]) {
+    try {
+      var pfd = new FormData();
+      pfd.append('file', photoFile.files[0]);
+      pfd.append('fileName', 'ANUBHAV_Photo_'+Date.now()+'_'+photoFile.files[0].name);
+      pfd.append('mimeType', photoFile.files[0].type);
+      var pRes = await fetch(UPLOAD_URL, {method:'POST', body:pfd});
+      var pData = await pRes.json();
+      if (pData.fileLink) photoLink = pData.fileLink;
+    } catch(e) { console.log('Photo upload failed:', e); }
+  }
+
+  var invoiceFile = document.getElementById('f_invoice_file');
+  if (invoiceFile && invoiceFile.files && invoiceFile.files[0]) {
+    try {
+      var ifd = new FormData();
+      ifd.append('file', invoiceFile.files[0]);
+      ifd.append('fileName', 'ANUBHAV_Invoice_'+Date.now()+'_'+invoiceFile.files[0].name);
+      ifd.append('mimeType', invoiceFile.files[0].type);
+      var iRes = await fetch(UPLOAD_URL, {method:'POST', body:ifd});
+      var iData = await iRes.json();
+      if (iData.fileLink) invoiceLink = iData.fileLink;
+    } catch(e) { console.log('Invoice upload failed:', e); }
+  }
+
   var payload = {
     timestamp: new Date().toISOString(),
     test_name: getVal('f_test_name'),
@@ -1118,6 +1148,8 @@ async function submitForm() {
     reuse_intent: getFieldVal('f_reuse')||'',
     nps: getScaleVal('f_nps'),
     anything_else: getVal('f_anything_else'),
+    photo_url: photoLink,
+    invoice_url: invoiceLink,
     comp_service: getVal('f_comp_service'),
     comp_amount: getVal('f_comp_amount'),
     reimb_notes: getVal('f_reimb_notes'),
@@ -1151,6 +1183,7 @@ async function submitForm() {
   };
 
   var SHEET_URL = 'https://script.google.com/macros/s/AKfycbzOg8wtKaRc0OjVaSl9BntgeX4QXtIcBBGgelaxQJ6hKKTmaYVBYfxkxvKb16_0EYFqEw/exec';
+  var UPLOAD_URL = 'https://proxy-kappa-five-95.vercel.app/api/upload';
   try {
     await fetch(SHEET_URL, {method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
   } catch(e) {}
