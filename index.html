@@ -792,7 +792,7 @@ function buildSec2(service) {
 
   // Determine provider name for question labels
   const isCompetitor = getFieldVal('f_svctype') === 'competitor';
-  const compName = document.getElementById('f_competitor_name')?.value?.trim() || 'the competitor';
+  const compName = (document.getElementById('f_competitor_name') || {}).value || 'the competitor';
   const providerName = isCompetitor ? compName : '1MG';
   const offersHint = isCompetitor
     ? 'Share any pricing observations or discount offers noticed'
@@ -1218,7 +1218,7 @@ function buildSec6() {
         <span>This section is not applicable for TATA 1MG service experiences. You can proceed to submit your feedback.</span>
       </div>`;
   } else {
-    const compName = document.getElementById('f_competitor_name')?.value || '';
+    const compName = (document.getElementById('f_competitor_name') || {}).value || '';
     body.innerHTML = `
       <div class="field">
         <label class="field-label">Service availed with ${compName || 'competitor'} <span class="req">*</span></label>
