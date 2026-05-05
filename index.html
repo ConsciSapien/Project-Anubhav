@@ -378,20 +378,7 @@
         </div>
         <div class="voice-status" id="vs_f_quality_notes"></div>
       </div>
-      <div class="field" id="f_issue_photo_wrap" style="display:none">
-        <label class="field-label">Optional: Attach a photo as evidence</label>
-        <div class="field-hint">Only if you selected an issue above</div>
-        <input type="file" id="f_issue_photo" accept=".jpg,.jpeg,.png" onchange="handlePhotoUpload(this)">
-        <div class="file-upload-area" onclick="document.getElementById('f_issue_photo').click()">
-          <div class="upload-icon">📷</div>
-          <strong>Click to attach photo</strong>
-          <p>JPG or PNG · Max 5MB</p>
-        </div>
-        <div class="file-preview" id="photoPreview">
-          <span>🖼️</span><span id="photoPreviewName"></span>
-          <span class="remove-file" onclick="removePhoto()">✕</span>
-        </div>
-      </div>
+
     </div>
     <div class="nav-row">
       <button class="btn-back" onclick="goBack()">&larr; Back</button>
@@ -715,7 +702,7 @@ function setupSec3(service) {
   var issuesList = SERVICE_ISSUES[service] || SERVICE_ISSUES.pathology;
   var iHtml = '';
   for (var i=0;i<issuesList.length;i++) {
-    iHtml += '<div class="option-btn checkbox" data-val="'+issuesList[i].val+'" onclick="selectOption(this,\'f_issues\',\'checkbox\');checkPhotoPrompt()"><div class="check"></div>'+issuesList[i].label+'</div>';
+    iHtml += '<div class="option-btn checkbox" data-val="'+issuesList[i].val+'" onclick="selectOption(this,\'f_issues\',\'checkbox\')"><div class="check"></div>'+issuesList[i].label+'</div>';
   }
   issuesWrap.innerHTML = iHtml;
   var hasReport = REPORT_SERVICES.indexOf(service)>-1;
@@ -759,7 +746,7 @@ function buildSec6() {
     var compName = getVal('f_competitor_name') || 'competitor';
     body.innerHTML = '<div class="field"><label class="field-label">Service availed with '+compName+' <span style="color:var(--red)">*</span></label><input type="text" id="f_comp_service" placeholder="e.g. Home Blood Test"><div class="field-error" id="err_comp_service">Please enter the service name</div></div>'
       +'<div class="field"><label class="field-label">Amount spent (Rs.) <span style="color:var(--red)">*</span></label><input type="text" id="f_comp_amount" placeholder="e.g. 850"><div class="field-error" id="err_comp_amount">Please enter the amount</div></div>'
-      +'<div class="field"><label class="field-label">Upload Invoice / Receipt <span style="color:var(--red)">*</span></label><div class="field-hint">Accepted: PDF, JPG, PNG</div><input type="file" id="f_invoice_file" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileUpload(this)"><div class="file-upload-area" onclick="document.getElementById(\'f_invoice_file\').click()"><div class="upload-icon">📎</div><strong>Click to attach invoice</strong><p>PDF, JPG or PNG</p></div><div class="file-preview" id="filePreview"><span>📄</span><span id="filePreviewName"></span><span class="remove-file" onclick="removeFile()">✕</span></div><div class="field-error" id="err_invoice">Please attach the invoice</div></div>'
+      +'<div class="field"><label class="field-label">Invoice Number / Reference <span style="color:var(--red)">*</span></label><input type="text" id="f_invoice_file" placeholder="e.g. INV-2024-001 or any reference number"><div class="field-error" id="err_invoice">Please enter the invoice reference</div></div>'
       +'<div class="field"><label class="field-label">Any reimbursement notes?</label><div class="voice-field"><textarea id="f_reimb_notes" placeholder="e.g. Invoice is in Hindi, amount is Rs.850..."></textarea><button class="voice-btn" onclick="toggleVoice(\'f_reimb_notes\',this)">🎙</button></div><div class="voice-status" id="vs_f_reimb_notes"></div></div>';
   }
 }
@@ -934,7 +921,7 @@ function validateCurrentSection() {
   if (currentSection===6 && getFieldVal('f_svctype')==='competitor') {
     var cs=document.getElementById('f_comp_service'); if (!cs||!cs.value.trim()) { showError('err_comp_service','f_comp_service'); valid=false; }
     var ca=document.getElementById('f_comp_amount'); if (!ca||!ca.value.trim()) { showError('err_comp_amount','f_comp_amount'); valid=false; }
-    var cf=document.getElementById('f_invoice_file'); if (!cf||!cf.files||!cf.files.length) { showError('err_invoice'); valid=false; }
+    var cf=document.getElementById('f_invoice_file'); if (!cf||!cf.value.trim()) { showError('err_invoice','f_invoice_file'); valid=false; }
   }
   if (!valid) {
     var firstErr = document.querySelector('.field-error.show');
@@ -1075,42 +1062,6 @@ async function submitForm() {
   var btn = document.querySelector('.btn-submit');
   if (btn) btn.classList.add('loading');
 
-  // Upload files to Google Drive
-  var photoLink = '';
-  var invoiceLink = '';
-
-  var photoFile = document.getElementById('f_issue_photo');
-  if (photoFile && photoFile.files && photoFile.files[0]) {
-    try {
-      var pfd = new FormData();
-      pfd.append('file', photoFile.files[0]);
-      pfd.append('fileName', 'ANUBHAV_Photo_'+Date.now()+'_'+photoFile.files[0].name);
-      pfd.append('mimeType', photoFile.files[0].type);
-      var pRes = await fetch(UPLOAD_URL, {method:'POST', body:pfd});
-      var pJson = await pRes.json();
-      console.log('Photo upload response:', pJson);
-      if (pJson && pJson.fileLink) photoLink = pJson.fileLink;
-      else if (pJson && pJson.webViewLink) photoLink = pJson.webViewLink;
-      else if (pJson && pJson.fileId) photoLink = 'https://drive.google.com/file/d/'+pJson.fileId+'/view';
-    } catch(e) { console.log('Photo upload failed:', e); }
-  }
-
-  var invoiceFile = document.getElementById('f_invoice_file');
-  if (invoiceFile && invoiceFile.files && invoiceFile.files[0]) {
-    try {
-      var ifd = new FormData();
-      ifd.append('file', invoiceFile.files[0]);
-      ifd.append('fileName', 'ANUBHAV_Invoice_'+Date.now()+'_'+invoiceFile.files[0].name);
-      ifd.append('mimeType', invoiceFile.files[0].type);
-      var iRes = await fetch(UPLOAD_URL, {method:'POST', body:ifd});
-      var iJson = await iRes.json();
-      console.log('Invoice upload response:', iJson);
-      if (iJson && iJson.fileLink) invoiceLink = iJson.fileLink;
-      else if (iJson && iJson.webViewLink) invoiceLink = iJson.webViewLink;
-      else if (iJson && iJson.fileId) invoiceLink = 'https://drive.google.com/file/d/'+iJson.fileId+'/view';
-    } catch(e) { console.log('Invoice upload failed:', e); }
-  }
-
   var payload = {
     timestamp: new Date().toISOString(),
     test_name: getVal('f_test_name'),
@@ -1154,8 +1105,8 @@ async function submitForm() {
     reuse_intent: getFieldVal('f_reuse')||'',
     nps: getScaleVal('f_nps'),
     anything_else: getVal('f_anything_else'),
-    photo_url: photoLink,
-    invoice_url: invoiceLink,
+    photo_url: '',
+    invoice_url: getVal('f_invoice_file'),
     comp_service: getVal('f_comp_service'),
     comp_amount: getVal('f_comp_amount'),
     reimb_notes: getVal('f_reimb_notes'),
@@ -1189,7 +1140,7 @@ async function submitForm() {
   };
 
   var SHEET_URL = 'https://script.google.com/macros/s/AKfycbzOg8wtKaRc0OjVaSl9BntgeX4QXtIcBBGgelaxQJ6hKKTmaYVBYfxkxvKb16_0EYFqEw/exec';
-  var UPLOAD_URL = 'https://proxy-kappa-five-95.vercel.app/api/upload';
+
   try {
     await fetch(SHEET_URL, {method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
   } catch(e) {}
