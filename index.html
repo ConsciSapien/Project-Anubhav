@@ -1087,8 +1087,11 @@ async function submitForm() {
       pfd.append('fileName', 'ANUBHAV_Photo_'+Date.now()+'_'+photoFile.files[0].name);
       pfd.append('mimeType', photoFile.files[0].type);
       var pRes = await fetch(UPLOAD_URL, {method:'POST', body:pfd});
-      var pData = await pRes.json();
-      if (pData.fileLink) photoLink = pData.fileLink;
+      var pJson = await pRes.json();
+      console.log('Photo upload response:', pJson);
+      if (pJson && pJson.fileLink) photoLink = pJson.fileLink;
+      else if (pJson && pJson.webViewLink) photoLink = pJson.webViewLink;
+      else if (pJson && pJson.fileId) photoLink = 'https://drive.google.com/file/d/'+pJson.fileId+'/view';
     } catch(e) { console.log('Photo upload failed:', e); }
   }
 
@@ -1100,8 +1103,11 @@ async function submitForm() {
       ifd.append('fileName', 'ANUBHAV_Invoice_'+Date.now()+'_'+invoiceFile.files[0].name);
       ifd.append('mimeType', invoiceFile.files[0].type);
       var iRes = await fetch(UPLOAD_URL, {method:'POST', body:ifd});
-      var iData = await iRes.json();
-      if (iData.fileLink) invoiceLink = iData.fileLink;
+      var iJson = await iRes.json();
+      console.log('Invoice upload response:', iJson);
+      if (iJson && iJson.fileLink) invoiceLink = iJson.fileLink;
+      else if (iJson && iJson.webViewLink) invoiceLink = iJson.webViewLink;
+      else if (iJson && iJson.fileId) invoiceLink = 'https://drive.google.com/file/d/'+iJson.fileId+'/view';
     } catch(e) { console.log('Invoice upload failed:', e); }
   }
 
