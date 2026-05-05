@@ -966,19 +966,7 @@ function removeFile() {
   var fp = document.getElementById('filePreview');
   if (fp) fp.classList.remove('show');
 }
-function handlePhotoUpload(input) {
-  var file = input.files[0];
-  if (!file) return;
-  var preview = document.getElementById('photoPreview');
-  var name = document.getElementById('photoPreviewName');
-  if (preview && name) { name.textContent = file.name+' ('+(file.size/1024).toFixed(0)+' KB)'; preview.classList.add('show'); }
-}
-function removePhoto() {
-  var fi = document.getElementById('f_issue_photo');
-  if (fi) fi.value = '';
-  var fp = document.getElementById('photoPreview');
-  if (fp) fp.classList.remove('show');
-}
+
 
 async function toggleVoice(fieldId, btn) {
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
@@ -1105,7 +1093,7 @@ async function submitForm() {
     reuse_intent: getFieldVal('f_reuse')||'',
     nps: getScaleVal('f_nps'),
     anything_else: getVal('f_anything_else'),
-    photo_url: '',
+
     invoice_url: getVal('f_invoice_file'),
     comp_service: getVal('f_comp_service'),
     comp_amount: getVal('f_comp_amount'),
