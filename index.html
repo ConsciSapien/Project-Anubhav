@@ -713,13 +713,7 @@ function setupSec3(service) {
   if (hasReport) buildScale('f_report_quality',5);
 }
 
-function checkPhotoPrompt() {
-  var issues = document.getElementById('f_issues');
-  var selected = issues.querySelectorAll('.selected');
-  var hasIssue = false;
-  for (var i=0;i<selected.length;i++) { if (selected[i].getAttribute('data-val')!=='no_issues') { hasIssue=true; break; } }
-  document.getElementById('f_issue_photo_wrap').style.display = hasIssue?'block':'none';
-}
+
 
 function setupSec5() {
   var isComp = getFieldVal('f_svctype')==='competitor';
