@@ -157,7 +157,7 @@ select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='htt
       <div class="logo">A</div>
       <div>
         <div class="brand-name">ANUBHAV<span>|</span><span class="deva">अनुभव</span></div>
-        <div class="brand-sub">Employee Experience Programme · TATA 1MG</div>
+        <div class="brand-sub">Employee Experience · TATA 1MG</div>
       </div>
     </div>
     <div class="header-right">
@@ -926,6 +926,8 @@ async function submitForm(){
     overall_rating:getScale('f_overall_rating'),reuse:getOpt('f_reuse'),switch_for_price:getOpt('f_switch'),nps:getNPS(),
     verdict_story:getVal('vs_verdict1'),improvement_story:getVal('vs_verdict2'),compare_story:getVal('vs_compare')
   };
+  // DEBUG — log payload to console before sending
+  console.log('ANUBHAV Payload:', JSON.stringify(payload, null, 2));
   var SHEET_URL='https://script.google.com/macros/s/AKfycbzOg8wtKaRc0OjVaSl9BntgeX4QXtIcBBGgelaxQJ6hKKTmaYVBYfxkxvKb16_0EYFqEw/exec';
   try{await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});}catch(e){}
   document.getElementById('heroBlock').style.display='none';
